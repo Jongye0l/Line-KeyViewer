@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Gma.System.MouseKeyHook;
 
 namespace LineKeyViewer
 {
@@ -28,6 +29,7 @@ namespace LineKeyViewer
         private bool key16_trigger = false;
 
         private ColorDialog color = new ColorDialog();
+        private IKeyboardMouseEvents hook = Hook.GlobalEvents();
 
         public Settings(App app)
         {
@@ -67,10 +69,16 @@ namespace LineKeyViewer
             }
 
             KeyPreview = true;
-            this.KeyDown += new KeyEventHandler(Settings_KeyDown);
-            this.Right.MouseDoubleClick += new MouseEventHandler(Right_DoubleClick);
-            this.Left.MouseDoubleClick += new MouseEventHandler(Left_DoubleClick);
-            this.Modes.SelectedIndexChanged += new EventHandler(Mode_IndexChanged);
+            hook.KeyDown += Settings_KeyDown;
+            Right.MouseDoubleClick += Right_DoubleClick;
+            Left.MouseDoubleClick += Left_DoubleClick;
+            Modes.SelectedIndexChanged += Mode_IndexChanged;
+            Disposed += Settings_Disposed;
+        }
+        
+        private void Settings_Disposed(object sender, EventArgs e)
+        {
+            hook.Dispose();
         }
 
         // Settings form events
