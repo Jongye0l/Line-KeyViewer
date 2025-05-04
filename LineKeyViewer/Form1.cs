@@ -17,10 +17,25 @@ namespace LineKeyViewer {
     public partial class App : Form {
         private IKeyboardMouseEvents hook = Hook.GlobalEvents();
 
-        private StringCollection right_pressed = new StringCollection();
-        private StringCollection left_pressed = new StringCollection();
+        private List<int> right_pressed = new List<int>();
+        private List<int> left_pressed = new List<int>();
 
-        public string key1, key2, key3, key4, key5, key6, key7, key8, key9, key10, key11, key12, key13, key14, key15, key16;
+        public int key1 = -1;
+        public int key2 = -1;
+        public int key3 = -1;
+        public int key4 = -1;
+        public int key5 = -1;
+        public int key6 = -1;
+        public int key7 = -1;
+        public int key8 = -1;
+        public int key9 = -1;
+        public int key10 = -1;
+        public int key11 = -1;
+        public int key12 = -1;
+        public int key13 = -1;
+        public int key14 = -1;
+        public int key15 = -1;
+        public int key16 = -1;
         public bool table, headClick;
 
         private Bitmap bg = Properties.Resources.empty;
@@ -142,7 +157,7 @@ namespace LineKeyViewer {
         private async void HookKeyDown(object sender, KeyEventArgs e) {
             try {
                 await Task.Yield();
-                string keyCode = e.KeyCode.ToString();
+                int keyCode = e.KeyValue;
                 if(key1 == keyCode) Press1();
                 if(key2 == keyCode) Press2();
                 if(key3 == keyCode) Press3();
@@ -168,23 +183,23 @@ namespace LineKeyViewer {
         private async void HookKeyUp(object sender, KeyEventArgs e) {
             try {
                 await Task.Yield();
-                string keyCode = e.KeyCode.ToString();
-                if(key1 == keyCode && right_pressed.Contains(key1)) UnPress1();
-                if(key2 == keyCode && right_pressed.Contains(key2)) UnPress2();
-                if(key3 == keyCode && right_pressed.Contains(key3)) UnPress3();
-                if(key4 == keyCode && right_pressed.Contains(key4)) UnPress4();
-                if(key5 == keyCode && left_pressed.Contains(key5)) UnPress5();
-                if(key6 == keyCode && left_pressed.Contains(key6)) UnPress6();
-                if(key7 == keyCode && left_pressed.Contains(key7)) UnPress7();
-                if(key8 == keyCode && left_pressed.Contains(key8)) UnPress8();
-                if(key9 == keyCode && right_pressed.Contains(key9)) UnPress9();
-                if(key10 == keyCode && right_pressed.Contains(key10)) UnPress10();
-                if(key11 == keyCode && right_pressed.Contains(key11)) UnPress11();
-                if(key12 == keyCode && right_pressed.Contains(key12)) UnPress12();
-                if(key13 == keyCode && left_pressed.Contains(key13)) UnPress13();
-                if(key14 == keyCode && left_pressed.Contains(key14)) UnPress14();
-                if(key15 == keyCode && left_pressed.Contains(key15)) UnPress15();
-                if(key16 == keyCode && left_pressed.Contains(key16)) UnPress16();
+                int keyCode = e.KeyValue;
+                if(key1 == keyCode && right_pressed.Contains(keyCode)) UnPress1();
+                if(key2 == keyCode && right_pressed.Contains(keyCode)) UnPress2();
+                if(key3 == keyCode && right_pressed.Contains(keyCode)) UnPress3();
+                if(key4 == keyCode && right_pressed.Contains(keyCode)) UnPress4();
+                if(key5 == keyCode && left_pressed.Contains(keyCode)) UnPress5();
+                if(key6 == keyCode && left_pressed.Contains(keyCode)) UnPress6();
+                if(key7 == keyCode && left_pressed.Contains(keyCode)) UnPress7();
+                if(key8 == keyCode && left_pressed.Contains(keyCode)) UnPress8();
+                if(key9 == keyCode && right_pressed.Contains(keyCode)) UnPress9();
+                if(key10 == keyCode && right_pressed.Contains(keyCode)) UnPress10();
+                if(key11 == keyCode && right_pressed.Contains(keyCode)) UnPress11();
+                if(key12 == keyCode && right_pressed.Contains(keyCode)) UnPress12();
+                if(key13 == keyCode && left_pressed.Contains(keyCode)) UnPress13();
+                if(key14 == keyCode && left_pressed.Contains(keyCode)) UnPress14();
+                if(key15 == keyCode && left_pressed.Contains(keyCode)) UnPress15();
+                if(key16 == keyCode && left_pressed.Contains(keyCode)) UnPress16();
                 CheckHeadClick();
             } catch (Exception ex) {
                 Console.WriteLine(ex);
@@ -436,7 +451,7 @@ namespace LineKeyViewer {
                 return;
             }
             try {
-                string k = right_pressed[right_pressed.Count - 1];
+                int k = right_pressed[right_pressed.Count - 1];
                 Hands.Image = Impose(front, k == key1  ? Properties.Resources.pressed_key1 :
                                             k == key2  ? Properties.Resources.pressed_key2 :
                                             k == key3  ? Properties.Resources.pressed_key3 :
@@ -456,7 +471,7 @@ namespace LineKeyViewer {
                 return;
             }
             try {
-                string k = left_pressed[left_pressed.Count - 1];
+                int k = left_pressed[left_pressed.Count - 1];
                 Hands.Image = Impose(front, k == key5  ? Properties.Resources.pressed_key5 :
                                             k == key6  ? Properties.Resources.pressed_key6 :
                                             k == key7  ? Properties.Resources.pressed_key7 :
@@ -470,7 +485,7 @@ namespace LineKeyViewer {
             }
         }
 
-        private Bitmap Superimpose(Bitmap largeBmp, Bitmap smallBmp, int x, int y) {
+        private static Bitmap Superimpose(Bitmap largeBmp, Bitmap smallBmp, int x, int y) {
             Graphics g = Graphics.FromImage(largeBmp);
             g.CompositingMode = CompositingMode.SourceOver;
             smallBmp.MakeTransparent();
@@ -478,14 +493,14 @@ namespace LineKeyViewer {
             return largeBmp;
         }
 
-        private Bitmap Impose(Bitmap largeBmp, Bitmap smallBmp, int x, int y) {
+        private static Bitmap Impose(Bitmap largeBmp, Bitmap smallBmp, int x, int y) {
             Graphics g = Graphics.FromImage(largeBmp);
             g.CompositingMode = CompositingMode.SourceCopy;
             g.DrawImageUnscaled(smallBmp, new Point(x, y));
             return largeBmp;
         }
 
-        private Bitmap UnSuperimpose(Bitmap largeBpm, Bitmap smallBpm, int x, int y) {
+        private static Bitmap UnSuperimpose(Bitmap largeBpm, Bitmap smallBpm, int x, int y) {
             for(int i = 0; i < smallBpm.Width; i++) {
                 for(int j = 0; j < smallBpm.Height; j++) {
                     if(x + i >= 0 && x + i < largeBpm.Width && y + j >= 0 && y + j < largeBpm.Height && smallBpm.GetPixel(i, j).A != 0) {

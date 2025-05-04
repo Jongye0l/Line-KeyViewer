@@ -124,10 +124,10 @@ namespace LineKeyViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("A")]
-        public string pianoKey1 {
+        [global::System.Configuration.DefaultSettingValueAttribute("65")]
+        public int pianoKey1 {
             get {
-                return ((string)(this["pianoKey1"]));
+                return ((int)(this["pianoKey1"]));
             }
             set {
                 this["pianoKey1"] = value;
@@ -136,10 +136,10 @@ namespace LineKeyViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("S")]
-        public string pianoKey2 {
+        [global::System.Configuration.DefaultSettingValueAttribute("83")]
+        public int pianoKey2 {
             get {
-                return ((string)(this["pianoKey2"]));
+                return ((int)(this["pianoKey2"]));
             }
             set {
                 this["pianoKey2"] = value;
@@ -148,10 +148,10 @@ namespace LineKeyViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("D")]
-        public string pianoKey3 {
+        [global::System.Configuration.DefaultSettingValueAttribute("68")]
+        public int pianoKey3 {
             get {
-                return ((string)(this["pianoKey3"]));
+                return ((int)(this["pianoKey3"]));
             }
             set {
                 this["pianoKey3"] = value;
@@ -160,10 +160,10 @@ namespace LineKeyViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("F")]
-        public string pianoKey4 {
+        [global::System.Configuration.DefaultSettingValueAttribute("70")]
+        public int pianoKey4 {
             get {
-                return ((string)(this["pianoKey4"]));
+                return ((int)(this["pianoKey4"]));
             }
             set {
                 this["pianoKey4"] = value;
@@ -172,10 +172,10 @@ namespace LineKeyViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("J")]
-        public string pianoKey5 {
+        [global::System.Configuration.DefaultSettingValueAttribute("74")]
+        public int pianoKey5 {
             get {
-                return ((string)(this["pianoKey5"]));
+                return ((int)(this["pianoKey5"]));
             }
             set {
                 this["pianoKey5"] = value;
@@ -184,10 +184,10 @@ namespace LineKeyViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("K")]
-        public string pianoKey6 {
+        [global::System.Configuration.DefaultSettingValueAttribute("75")]
+        public int pianoKey6 {
             get {
-                return ((string)(this["pianoKey6"]));
+                return ((int)(this["pianoKey6"]));
             }
             set {
                 this["pianoKey6"] = value;
@@ -196,10 +196,10 @@ namespace LineKeyViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("L")]
-        public string pianoKey7 {
+        [global::System.Configuration.DefaultSettingValueAttribute("76")]
+        public int pianoKey7 {
             get {
-                return ((string)(this["pianoKey7"]));
+                return ((int)(this["pianoKey7"]));
             }
             set {
                 this["pianoKey7"] = value;
@@ -208,10 +208,10 @@ namespace LineKeyViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Oem1")]
-        public string pianoKey8 {
+        [global::System.Configuration.DefaultSettingValueAttribute("186")]
+        public int pianoKey8 {
             get {
-                return ((string)(this["pianoKey8"]));
+                return ((int)(this["pianoKey8"]));
             }
             set {
                 this["pianoKey8"] = value;
@@ -232,10 +232,10 @@ namespace LineKeyViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Z")]
-        public string pianoKey9 {
+        [global::System.Configuration.DefaultSettingValueAttribute("90")]
+        public int pianoKey9 {
             get {
-                return ((string)(this["pianoKey9"]));
+                return ((int)(this["pianoKey9"]));
             }
             set {
                 this["pianoKey9"] = value;
@@ -244,10 +244,10 @@ namespace LineKeyViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("X")]
-        public string pianoKey10 {
+        [global::System.Configuration.DefaultSettingValueAttribute("88")]
+        public int pianoKey10 {
             get {
-                return ((string)(this["pianoKey10"]));
+                return ((int)(this["pianoKey10"]));
             }
             set {
                 this["pianoKey10"] = value;
@@ -256,10 +256,10 @@ namespace LineKeyViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C")]
-        public string pianoKey11 {
+        [global::System.Configuration.DefaultSettingValueAttribute("67")]
+        public int pianoKey11 {
             get {
-                return ((string)(this["pianoKey11"]));
+                return ((int)(this["pianoKey11"]));
             }
             set {
                 this["pianoKey11"] = value;
@@ -268,10 +268,10 @@ namespace LineKeyViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("V")]
-        public string pianoKey12 {
+        [global::System.Configuration.DefaultSettingValueAttribute("86")]
+        public int pianoKey12 {
             get {
-                return ((string)(this["pianoKey12"]));
+                return ((int)(this["pianoKey12"]));
             }
             set {
                 this["pianoKey12"] = value;
@@ -280,10 +280,10 @@ namespace LineKeyViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("N")]
-        public string pianoKey13 {
+        [global::System.Configuration.DefaultSettingValueAttribute("78")]
+        public int pianoKey13 {
             get {
-                return ((string)(this["pianoKey13"]));
+                return ((int)(this["pianoKey13"]));
             }
             set {
                 this["pianoKey13"] = value;
@@ -292,10 +292,10 @@ namespace LineKeyViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("M")]
-        public string pianoKey14 {
+        [global::System.Configuration.DefaultSettingValueAttribute("77")]
+        public int pianoKey14 {
             get {
-                return ((string)(this["pianoKey14"]));
+                return ((int)(this["pianoKey14"]));
             }
             set {
                 this["pianoKey14"] = value;
@@ -304,10 +304,10 @@ namespace LineKeyViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Oemcomma")]
-        public string pianoKey15 {
+        [global::System.Configuration.DefaultSettingValueAttribute("188")]
+        public int pianoKey15 {
             get {
-                return ((string)(this["pianoKey15"]));
+                return ((int)(this["pianoKey15"]));
             }
             set {
                 this["pianoKey15"] = value;
@@ -316,10 +316,10 @@ namespace LineKeyViewer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("OemPeriod")]
-        public string pianoKey16 {
+        [global::System.Configuration.DefaultSettingValueAttribute("190")]
+        public int pianoKey16 {
             get {
-                return ((string)(this["pianoKey16"]));
+                return ((int)(this["pianoKey16"]));
             }
             set {
                 this["pianoKey16"] = value;

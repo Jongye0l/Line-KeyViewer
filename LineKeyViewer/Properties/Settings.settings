@@ -32,56 +32,56 @@
     <Setting Name="pianoTable" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="pianoKey1" Type="System.String" Scope="User">
-      <Value Profile="(Default)">A</Value>
+    <Setting Name="pianoKey1" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">65</Value>
     </Setting>
-    <Setting Name="pianoKey2" Type="System.String" Scope="User">
-      <Value Profile="(Default)">S</Value>
+    <Setting Name="pianoKey2" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">83</Value>
     </Setting>
-    <Setting Name="pianoKey3" Type="System.String" Scope="User">
-      <Value Profile="(Default)">D</Value>
+    <Setting Name="pianoKey3" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">68</Value>
     </Setting>
-    <Setting Name="pianoKey4" Type="System.String" Scope="User">
-      <Value Profile="(Default)">F</Value>
+    <Setting Name="pianoKey4" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">70</Value>
     </Setting>
-    <Setting Name="pianoKey5" Type="System.String" Scope="User">
-      <Value Profile="(Default)">J</Value>
+    <Setting Name="pianoKey5" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">74</Value>
     </Setting>
-    <Setting Name="pianoKey6" Type="System.String" Scope="User">
-      <Value Profile="(Default)">K</Value>
+    <Setting Name="pianoKey6" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">75</Value>
     </Setting>
-    <Setting Name="pianoKey7" Type="System.String" Scope="User">
-      <Value Profile="(Default)">L</Value>
+    <Setting Name="pianoKey7" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">76</Value>
     </Setting>
-    <Setting Name="pianoKey8" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Oem1</Value>
+    <Setting Name="pianoKey8" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">186</Value>
     </Setting>
     <Setting Name="pianoBackground" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">128, 255, 255</Value>
     </Setting>
-    <Setting Name="pianoKey9" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Z</Value>
+    <Setting Name="pianoKey9" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">90</Value>
     </Setting>
-    <Setting Name="pianoKey10" Type="System.String" Scope="User">
-      <Value Profile="(Default)">X</Value>
+    <Setting Name="pianoKey10" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">88</Value>
     </Setting>
-    <Setting Name="pianoKey11" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C</Value>
+    <Setting Name="pianoKey11" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">67</Value>
     </Setting>
-    <Setting Name="pianoKey12" Type="System.String" Scope="User">
-      <Value Profile="(Default)">V</Value>
+    <Setting Name="pianoKey12" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">86</Value>
     </Setting>
-    <Setting Name="pianoKey13" Type="System.String" Scope="User">
-      <Value Profile="(Default)">N</Value>
+    <Setting Name="pianoKey13" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">78</Value>
     </Setting>
-    <Setting Name="pianoKey14" Type="System.String" Scope="User">
-      <Value Profile="(Default)">M</Value>
+    <Setting Name="pianoKey14" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">77</Value>
     </Setting>
-    <Setting Name="pianoKey15" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Oemcomma</Value>
+    <Setting Name="pianoKey15" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">188</Value>
     </Setting>
-    <Setting Name="pianoKey16" Type="System.String" Scope="User">
-      <Value Profile="(Default)">OemPeriod</Value>
+    <Setting Name="pianoKey16" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">190</Value>
     </Setting>
     <Setting Name="NotificationMod" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
