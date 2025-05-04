@@ -325,5 +325,17 @@ namespace LineKeyViewer.Properties {
                 this["pianoKey16"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool NotificationMod {
+            get {
+                return ((bool)(this["NotificationMod"]));
+            }
+            set {
+                this["NotificationMod"] = value;
+            }
+        }
     }
 }

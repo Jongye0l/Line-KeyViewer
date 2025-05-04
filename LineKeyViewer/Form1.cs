@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,9 +25,11 @@ namespace LineKeyViewer {
 
         private Bitmap bg = Properties.Resources.empty;
         private Bitmap front = Properties.Resources.empty;
+        private bool korean = CultureInfo.CurrentCulture.Name == "ko-KR";
 
         public App() {
             Task.Run(CheckUpdates);
+            Task.Run(CheckMods);
             InitializeComponent();
 
             KeyPreview = true;
@@ -52,11 +56,33 @@ namespace LineKeyViewer {
                 for(int i = 0; releases[i].TagName != version; ++i) 
                     message += "\n" + releases[i].TagName + ":\n" + releases[i].Body + "\n";
                 if(message != "") {
-                    DialogResult result = MessageBox.Show("Updates avaliable:\n" + message + "\nWould you like to download now?", "Line KeyViewer", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    DialogResult result = MessageBox.Show(string.Format(korean ? "새 버전 발견:\n{0}\n새 버전으로 설치하시겠습니까?" : "Updates avaliable:\n{0}\nWould you like to download now?", message), "Line KeyViewer", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                     if(result == DialogResult.Yes) System.Diagnostics.Process.Start("https://github.com/Jongye0l/Line-Keyviewer/releases/download/" + releases[0].TagName + "/LineKeyViewer.exe");
                 }
             } catch {
                 // ignored
+            }
+        }
+
+        private async void CheckMods() {
+            try {
+                if(Properties.Settings.Default.NotificationMod) return;
+                WebClient webClient = new WebClient();
+                byte[] data = await webClient.DownloadDataTaskAsync("http://jalib.jongyeol.kr/modInfoV2/LineKeyViewer/latest/0");
+                if(data[0] == 0) return;
+                int size = data[1] << 24 | data[2] << 16 | data[3] << 8 | data[4];
+                Console.WriteLine("Found string size :" + size);
+                byte[] stringData = new byte[size];
+                Array.Copy(data, 5, stringData, 0, size);
+                string version = System.Text.Encoding.UTF8.GetString(stringData);
+                DialogResult result = MessageBox.Show(string.Format(korean ? "얼불춤 모드 발견\n버전: {0}\n얼불춤 모드를 적용하시겠습니까?" : "Adofai mod available:\n{0}\nWould you like to apply mod now?", version), "Line KeyViewer Adofai Mods", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Asterisk);
+                if(result == DialogResult.Yes) System.Diagnostics.Process.Start("http://jalib.jongyeol.kr/modApplicator/LineKeyViewer/latest");
+                else if(result == DialogResult.No) {
+                    Properties.Settings.Default.NotificationMod = true;
+                    Properties.Settings.Default.Save();
+                }
+            } catch (Exception e) {
+                Console.WriteLine(e);
             }
         }
 
