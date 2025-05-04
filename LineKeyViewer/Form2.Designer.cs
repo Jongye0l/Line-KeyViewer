@@ -28,20 +28,6 @@
         /// </summary>
         private void InitializeComponent() {
             this.Modes = new System.Windows.Forms.TabControl();
-            this.Default = new System.Windows.Forms.TabPage();
-            this.Table = new System.Windows.Forms.CheckBox();
-            this.Mouse = new System.Windows.Forms.CheckBox();
-            this.Instrument = new System.Windows.Forms.ComboBox();
-            this.Background = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.AddLeft = new System.Windows.Forms.Button();
-            this.AddRight = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Left = new System.Windows.Forms.ListBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Right = new System.Windows.Forms.ListBox();
             this.Piano = new System.Windows.Forms.TabPage();
             this.pianoTable = new System.Windows.Forms.CheckBox();
             this.pianoBackground = new System.Windows.Forms.Button();
@@ -84,9 +70,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.Modes.SuspendLayout();
-            this.Default.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.Piano.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -95,7 +78,6 @@
             // 
             // Modes
             // 
-            this.Modes.Controls.Add(this.Default);
             this.Modes.Controls.Add(this.Piano);
             this.Modes.Location = new System.Drawing.Point(0, 0);
             this.Modes.Name = "Modes";
@@ -103,166 +85,6 @@
             this.Modes.Size = new System.Drawing.Size(287, 251);
             this.Modes.TabIndex = 0;
             this.Modes.TabStop = false;
-            // 
-            // Default
-            // 
-            this.Default.Controls.Add(this.Table);
-            this.Default.Controls.Add(this.Mouse);
-            this.Default.Controls.Add(this.Instrument);
-            this.Default.Controls.Add(this.Background);
-            this.Default.Controls.Add(this.label3);
-            this.Default.Controls.Add(this.label2);
-            this.Default.Controls.Add(this.label1);
-            this.Default.Controls.Add(this.AddLeft);
-            this.Default.Controls.Add(this.AddRight);
-            this.Default.Controls.Add(this.groupBox2);
-            this.Default.Controls.Add(this.groupBox1);
-            this.Default.Location = new System.Drawing.Point(4, 22);
-            this.Default.Name = "Default";
-            this.Default.Padding = new System.Windows.Forms.Padding(3);
-            this.Default.Size = new System.Drawing.Size(279, 225);
-            this.Default.TabIndex = 0;
-            this.Default.Text = "Default";
-            this.Default.UseVisualStyleBackColor = true;
-            // 
-            // Table
-            // 
-            this.Table.AutoSize = true;
-            this.Table.Location = new System.Drawing.Point(177, 207);
-            this.Table.Name = "Table";
-            this.Table.Size = new System.Drawing.Size(80, 16);
-            this.Table.TabIndex = 10;
-            this.Table.TabStop = false;
-            this.Table.Text = "Hide table";
-            this.Table.UseVisualStyleBackColor = true;
-            this.Table.CheckedChanged += new System.EventHandler(this.Table_CheckedChanged);
-            // 
-            // Mouse
-            // 
-            this.Mouse.AutoSize = true;
-            this.Mouse.Location = new System.Drawing.Point(7, 207);
-            this.Mouse.Name = "Mouse";
-            this.Mouse.Size = new System.Drawing.Size(130, 16);
-            this.Mouse.TabIndex = 9;
-            this.Mouse.TabStop = false;
-            this.Mouse.Text = "Track mouse input";
-            this.Mouse.UseVisualStyleBackColor = true;
-            this.Mouse.CheckedChanged += new System.EventHandler(this.Mouse_CheckedChanged);
-            // 
-            // Instrument
-            // 
-            this.Instrument.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Instrument.FormattingEnabled = true;
-            this.Instrument.Items.AddRange(new object[] {
-                "None", "Bongo", "Controller", "Keyboard"
-            });
-            this.Instrument.Location = new System.Drawing.Point(90, 182);
-            this.Instrument.Name = "Instrument";
-            this.Instrument.Size = new System.Drawing.Size(180, 20);
-            this.Instrument.TabIndex = 8;
-            this.Instrument.TabStop = false;
-            this.Instrument.SelectedIndexChanged += new System.EventHandler(this.Instrument_SelectedIndexChanged);
-            // 
-            // Background
-            // 
-            this.Background.Location = new System.Drawing.Point(90, 156);
-            this.Background.Name = "Background";
-            this.Background.Size = new System.Drawing.Size(181, 21);
-            this.Background.TabIndex = 7;
-            this.Background.TabStop = false;
-            this.Background.UseVisualStyleBackColor = true;
-            this.Background.Click += new System.EventHandler(this.Background_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 185);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 12);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Instrument:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 160);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 12);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Backbround:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(36, 139);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Doubleclick on key value to delete it";
-            // 
-            // AddLeft
-            // 
-            this.AddLeft.Location = new System.Drawing.Point(90, 97);
-            this.AddLeft.Name = "AddLeft";
-            this.AddLeft.Size = new System.Drawing.Size(98, 21);
-            this.AddLeft.TabIndex = 3;
-            this.AddLeft.TabStop = false;
-            this.AddLeft.Text = "Add =>";
-            this.AddLeft.UseVisualStyleBackColor = true;
-            this.AddLeft.Click += new System.EventHandler(this.AddLeft_Click);
-            // 
-            // AddRight
-            // 
-            this.AddRight.Location = new System.Drawing.Point(90, 30);
-            this.AddRight.Name = "AddRight";
-            this.AddRight.Size = new System.Drawing.Size(98, 21);
-            this.AddRight.TabIndex = 2;
-            this.AddRight.TabStop = false;
-            this.AddRight.Text = "<= Add";
-            this.AddRight.UseVisualStyleBackColor = true;
-            this.AddRight.Click += new System.EventHandler(this.AddRight_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.Left);
-            this.groupBox2.Location = new System.Drawing.Point(195, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(76, 128);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Key 2";
-            // 
-            // Left
-            // 
-            this.Left.FormattingEnabled = true;
-            this.Left.ItemHeight = 12;
-            this.Left.Location = new System.Drawing.Point(7, 18);
-            this.Left.Name = "Left";
-            this.Left.Size = new System.Drawing.Size(61, 100);
-            this.Left.TabIndex = 1;
-            this.Left.TabStop = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.Right);
-            this.groupBox1.Location = new System.Drawing.Point(7, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(76, 128);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Key 1";
-            // 
-            // Right
-            // 
-            this.Right.FormattingEnabled = true;
-            this.Right.ItemHeight = 12;
-            this.Right.Location = new System.Drawing.Point(7, 18);
-            this.Right.Name = "Right";
-            this.Right.Size = new System.Drawing.Size(61, 100);
-            this.Right.TabIndex = 0;
-            this.Right.TabStop = false;
             // 
             // Piano
             // 
@@ -704,10 +526,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Settings";
             this.Modes.ResumeLayout(false);
-            this.Default.ResumeLayout(false);
-            this.Default.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
             this.Piano.ResumeLayout(false);
             this.Piano.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -740,23 +558,9 @@
         #endregion
 
         private System.Windows.Forms.TabControl Modes;
-        private System.Windows.Forms.TabPage Default;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.CheckBox Table;
-        private System.Windows.Forms.CheckBox Mouse;
-        private System.Windows.Forms.ComboBox Instrument;
-        private System.Windows.Forms.Button Background;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button AddLeft;
-        private System.Windows.Forms.Button AddRight;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ListBox Left;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListBox Right;
         private System.Windows.Forms.TabPage Piano;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;

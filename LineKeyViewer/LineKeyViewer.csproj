@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>1.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Costura, Version=3.1.2.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
@@ -165,8 +165,8 @@
     <None Include="Resources\pressed_right_wave.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1.ico" />
     <Content Include="Resources\empty.png" />
+    <Content Include="Resources\icon.ico" />
     <Content Include="Resources\key10.png" />
     <Content Include="Resources\key11.png" />
     <Content Include="Resources\key12.png" />

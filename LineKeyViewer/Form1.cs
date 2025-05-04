@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,54 +18,46 @@ namespace LineKeyViewer {
         private StringCollection right_pressed = new StringCollection();
         private StringCollection left_pressed = new StringCollection();
 
-        private string mode = Properties.Settings.Default.Mode;
-
         public string key1, key2, key3, key4, key5, key6, key7, key8, key9, key10, key11, key12, key13, key14, key15, key16;
-        public StringCollection right = new StringCollection();
-        public StringCollection left = new StringCollection();
-        public bool mouse, table, headClick;
+        public bool table, headClick;
 
         private Bitmap bg = Properties.Resources.empty;
         private Bitmap front = Properties.Resources.empty;
 
         public App() {
-            CheckUpdates();
+            Task.Run(CheckUpdates);
             InitializeComponent();
 
             KeyPreview = true;
             KeyDown += AppKeyDown;
             hook.KeyDown += HookKeyDown;
             hook.KeyUp += HookKeyUp;
-            hook.MouseDown += HookMouseDown;
-            hook.MouseUp += HookMouseUp;
             Disposed += OnDispose;
 
             Cat.Controls.Add(Hands);
-            SetMode(mode);
-            Winking();
+            SetupMode();
+            Task.Run(Winking);
         }
 
         private void OnDispose(object sender, EventArgs e) {
             hook.Dispose();
         }
 
-        private void CheckUpdates() {
-            Task.Run(async () => {
-                try {
-                    GitHubClient client = new GitHubClient(new ProductHeaderValue("Line-KeyViewer"));
-                    IReadOnlyList<Release> releases = await client.Repository.Release.GetAll("Jongye0l", "Line-KeyViewer");
-                    string message = "";
-                    string version = 'v' + typeof(Program).Assembly.GetName().Version.ToString();
-                    for(int i = 0; releases[i].TagName != version; ++i) 
-                        message += "\n" + releases[i].TagName + ":\n" + releases[i].Body + "\n";
-                    if(message != "") {
-                        DialogResult result = MessageBox.Show("Updates avaliable:\n" + message + "\nWould you like to download now?", "Line KeyViewer", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                        if(result == DialogResult.Yes) System.Diagnostics.Process.Start("https://github.com/Jongye0l/Line-Keyviewer/releases/download/" + releases[0].TagName + "/LineKeyViewer.exe");
-                    }
-                } catch {
-                    // ignored
+        private async void CheckUpdates() {
+            try {
+                GitHubClient client = new GitHubClient(new ProductHeaderValue("Line-KeyViewer"));
+                IReadOnlyList<Release> releases = await client.Repository.Release.GetAll("Jongye0l", "Line-KeyViewer");
+                string message = "";
+                string version = 'v' + typeof(Program).Assembly.GetName().Version.ToString();
+                for(int i = 0; releases[i].TagName != version; ++i) 
+                    message += "\n" + releases[i].TagName + ":\n" + releases[i].Body + "\n";
+                if(message != "") {
+                    DialogResult result = MessageBox.Show("Updates avaliable:\n" + message + "\nWould you like to download now?", "Line KeyViewer", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    if(result == DialogResult.Yes) System.Diagnostics.Process.Start("https://github.com/Jongye0l/Line-Keyviewer/releases/download/" + releases[0].TagName + "/LineKeyViewer.exe");
                 }
-            });
+            } catch {
+                // ignored
+            }
         }
 
         private void AppKeyDown(object sender, KeyEventArgs e) {
@@ -73,29 +67,16 @@ namespace LineKeyViewer {
             }
         }
 
-        private void Winking() {
-            Task.Run(async () => {
-                Random rnd = new Random();
-                while(Thread.CurrentThread.IsAlive) {
-                    do {
-                        await Task.Delay(rnd.Next(3000, 7000));
-                    } while(headClick);
-                    Cat.BackgroundImage = table ? Properties.Resources.line_wink : Properties.Resources.line_table_wink;
-                    await Task.Delay(rnd.Next(100, 250));
-                    if(!headClick) Cat.BackgroundImage = table ? Properties.Resources.line : Properties.Resources.line_table;
-                }
-            });
-        }
-
-        public void SetInstrument(string Instrument) {
-            switch(Instrument) {
-                case "None": Cat.Image = null; break;
-                case "Bongo": Cat.Image = Properties.Resources.bongo; break;
-                case "Keyboard": Cat.Image = Properties.Resources.keyboard; break;
-                case "Controller": Cat.Image = Properties.Resources.controller; break;
-                case "Piano": Cat.Image = Properties.Resources.piano; break;
+        private async void Winking() {
+            Random rnd = new Random();
+            while(Thread.CurrentThread.IsAlive) {
+                do {
+                    await Task.Delay(rnd.Next(3000, 7000));
+                } while(headClick);
+                Cat.BackgroundImage = table ? Properties.Resources.line_wink : Properties.Resources.line_table_wink;
+                await Task.Delay(rnd.Next(100, 250));
+                if(!headClick) Cat.BackgroundImage = table ? Properties.Resources.line : Properties.Resources.line_table;
             }
-            Cat.Update();
         }
 
         public void TransparentTable(bool Value) {
@@ -104,158 +85,84 @@ namespace LineKeyViewer {
                                       headClick ? Properties.Resources.table : Properties.Resources.line_table;
         }
 
-        public void SetMode(string mode) {
+        public void SetupMode() {
             Hands.Image = Impose(front, Properties.Resources.unpressed_right, 0, 0);
             Hands.Image = Impose(front, Properties.Resources.unpressed_left, 270, 0);
             right_pressed.Clear();
             left_pressed.Clear();
-            switch(mode) {
-                case "Default":
-                    this.mode = "Default";
-                    right.Clear();
-                    left.Clear();
-                    foreach(string s in Properties.Settings.Default.defaultRight) right.Add(s);
-                    foreach(string s in Properties.Settings.Default.defaultLeft) left.Add(s);
-                    mouse = Properties.Settings.Default.defaultMouse;
-                    table = Properties.Settings.Default.defaultTable;
+            key1 = Properties.Settings.Default.pianoKey1;
+            key2 = Properties.Settings.Default.pianoKey2;
+            key3 = Properties.Settings.Default.pianoKey3;
+            key4 = Properties.Settings.Default.pianoKey4;
+            key5 = Properties.Settings.Default.pianoKey5;
+            key6 = Properties.Settings.Default.pianoKey6;
+            key7 = Properties.Settings.Default.pianoKey7;
+            key8 = Properties.Settings.Default.pianoKey8;
+            key9 = Properties.Settings.Default.pianoKey9;
+            key10 = Properties.Settings.Default.pianoKey10;
+            key11 = Properties.Settings.Default.pianoKey11;
+            key12 = Properties.Settings.Default.pianoKey12;
+            key13 = Properties.Settings.Default.pianoKey13;
+            key14 = Properties.Settings.Default.pianoKey14;
+            key15 = Properties.Settings.Default.pianoKey15;
+            key16 = Properties.Settings.Default.pianoKey16;
+            table = Properties.Settings.Default.pianoTable;
+            Cat.BackColor = Properties.Settings.Default.pianoBackground;
+            TransparentTable(Properties.Settings.Default.pianoTable);
+            Cat.Image = Properties.Resources.piano;
+            Cat.Update();
+        }
 
-                    Cat.BackColor = Properties.Settings.Default.defaultBackground;
-                    TransparentTable(Properties.Settings.Default.defaultTable);
-                    SetInstrument(Properties.Settings.Default.defaultInstrument);
-                    break;
-                case "Piano":
-                    this.mode = "Piano";
-                    key1 = Properties.Settings.Default.pianoKey1;
-                    key2 = Properties.Settings.Default.pianoKey2;
-                    key3 = Properties.Settings.Default.pianoKey3;
-                    key4 = Properties.Settings.Default.pianoKey4;
-                    key5 = Properties.Settings.Default.pianoKey5;
-                    key6 = Properties.Settings.Default.pianoKey6;
-                    key7 = Properties.Settings.Default.pianoKey7;
-                    key8 = Properties.Settings.Default.pianoKey8;
-                    key9 = Properties.Settings.Default.pianoKey9;
-                    key10 = Properties.Settings.Default.pianoKey10;
-                    key11 = Properties.Settings.Default.pianoKey11;
-                    key12 = Properties.Settings.Default.pianoKey12;
-                    key13 = Properties.Settings.Default.pianoKey13;
-                    key14 = Properties.Settings.Default.pianoKey14;
-                    key15 = Properties.Settings.Default.pianoKey15;
-                    key16 = Properties.Settings.Default.pianoKey16;
-                    table = Properties.Settings.Default.pianoTable;
-                    mouse = false;
-
-                    Cat.BackColor = Properties.Settings.Default.pianoBackground;
-                    TransparentTable(Properties.Settings.Default.pianoTable);
-                    SetInstrument("Piano");
-                    break;
+        private async void HookKeyDown(object sender, KeyEventArgs e) {
+            try {
+                await Task.Yield();
+                string keyCode = e.KeyCode.ToString();
+                if(key1 == keyCode) Press1();
+                if(key2 == keyCode) Press2();
+                if(key3 == keyCode) Press3();
+                if(key4 == keyCode) Press4();
+                if(key5 == keyCode) Press5();
+                if(key6 == keyCode) Press6();
+                if(key7 == keyCode) Press7();
+                if(key8 == keyCode) Press8();
+                if(key9 == keyCode) Press9();
+                if(key10 == keyCode) Press10();
+                if(key11 == keyCode) Press11();
+                if(key12 == keyCode) Press12();
+                if(key13 == keyCode) Press13();
+                if(key14 == keyCode) Press14();
+                if(key15 == keyCode) Press15();
+                if(key16 == keyCode) Press16();
+                CheckHeadClick();
+            } catch (Exception ex) {
+                Console.WriteLine(ex);
             }
         }
 
-        private void RightHandPress(string Key) {
-            if(!right_pressed.Contains(Key)) {
-                right_pressed.Add(Key);
-                Hands.Image = Impose(front, Properties.Resources.pressed_right_wave, 0, 0);
-                Task.Run(async () => {
-                    await Task.Delay(100);
-                    if(right_pressed.Count > 0) Hands.Image = Impose(front, Properties.Resources.pressed_right, 0, 0);
-                    else Hands.Image = Impose(front, Properties.Resources.unpressed_right, 0, 0);
-                });
+        private async void HookKeyUp(object sender, KeyEventArgs e) {
+            try {
+                await Task.Yield();
+                string keyCode = e.KeyCode.ToString();
+                if(key1 == keyCode && right_pressed.Contains(key1)) UnPress1();
+                if(key2 == keyCode && right_pressed.Contains(key2)) UnPress2();
+                if(key3 == keyCode && right_pressed.Contains(key3)) UnPress3();
+                if(key4 == keyCode && right_pressed.Contains(key4)) UnPress4();
+                if(key5 == keyCode && left_pressed.Contains(key5)) UnPress5();
+                if(key6 == keyCode && left_pressed.Contains(key6)) UnPress6();
+                if(key7 == keyCode && left_pressed.Contains(key7)) UnPress7();
+                if(key8 == keyCode && left_pressed.Contains(key8)) UnPress8();
+                if(key9 == keyCode && right_pressed.Contains(key9)) UnPress9();
+                if(key10 == keyCode && right_pressed.Contains(key10)) UnPress10();
+                if(key11 == keyCode && right_pressed.Contains(key11)) UnPress11();
+                if(key12 == keyCode && right_pressed.Contains(key12)) UnPress12();
+                if(key13 == keyCode && left_pressed.Contains(key13)) UnPress13();
+                if(key14 == keyCode && left_pressed.Contains(key14)) UnPress14();
+                if(key15 == keyCode && left_pressed.Contains(key15)) UnPress15();
+                if(key16 == keyCode && left_pressed.Contains(key16)) UnPress16();
+                CheckHeadClick();
+            } catch (Exception ex) {
+                Console.WriteLine(ex);
             }
-
-        }
-
-        private void LeftHandPress(string Key) {
-            if(!left_pressed.Contains(Key)) {
-                left_pressed.Add(Key);
-                Hands.Image = Impose(front, Properties.Resources.pressed_left_wave, 270, 0);
-                Task.Run(async () => {
-                    await Task.Delay(100);
-                    if(left_pressed.Count > 0) Hands.Image = Impose(front, Properties.Resources.pressed_left, 270, 0);
-                    else Hands.Image = Impose(front, Properties.Resources.unpressed_left, 270, 0);
-                });
-            }
-
-        }
-
-        private void RightHandUnpress(string Key) {
-            right_pressed.Remove(Key);
-            if(right_pressed.Count == 0) Hands.Image = Impose(front, Properties.Resources.unpressed_right, 0, 0);
-        }
-
-        private void LeftHandUnpress(string Key) {
-            left_pressed.Remove(Key);
-            if(left_pressed.Count == 0) Hands.Image = Impose(front, Properties.Resources.unpressed_left, 270, 0);
-        }
-
-        private void HookKeyDown(object sender, KeyEventArgs e) {
-            string keyCode = e.KeyCode.ToString();
-            switch(mode) {
-                case "Default":
-                    if(right.Contains(keyCode)) RightHandPress(keyCode);
-                    if(left.Contains(keyCode)) LeftHandPress(keyCode);
-                    break;
-                case "Piano":
-                    if(key1 == keyCode) Press1();
-                    if(key2 == keyCode) Press2();
-                    if(key3 == keyCode) Press3();
-                    if(key4 == keyCode) Press4();
-                    if(key5 == keyCode) Press5();
-                    if(key6 == keyCode) Press6();
-                    if(key7 == keyCode) Press7();
-                    if(key8 == keyCode) Press8();
-                    if(key9 == keyCode) Press9();
-                    if(key10 == keyCode) Press10();
-                    if(key11 == keyCode) Press11();
-                    if(key12 == keyCode) Press12();
-                    if(key13 == keyCode) Press13();
-                    if(key14 == keyCode) Press14();
-                    if(key15 == keyCode) Press15();
-                    if(key16 == keyCode) Press16();
-                    CheckHeadClick();
-                    break;
-            }
-        }
-
-        private void HookKeyUp(object sender, KeyEventArgs e) {
-            string keyCode = e.KeyCode.ToString();
-            switch(mode) {
-                case "Default":
-                    if(right_pressed.Contains(keyCode)) RightHandUnpress(keyCode);
-                    if(left_pressed.Contains(keyCode)) LeftHandUnpress(keyCode);
-                    break;
-                case "Piano":
-                    if(key1 == keyCode && right_pressed.Contains(key1)) UnPress1();
-                    if(key2 == keyCode && right_pressed.Contains(key2)) UnPress2();
-                    if(key3 == keyCode && right_pressed.Contains(key3)) UnPress3();
-                    if(key4 == keyCode && right_pressed.Contains(key4)) UnPress4();
-                    if(key5 == keyCode && left_pressed.Contains(key5)) UnPress5();
-                    if(key6 == keyCode && left_pressed.Contains(key6)) UnPress6();
-                    if(key7 == keyCode && left_pressed.Contains(key7)) UnPress7();
-                    if(key8 == keyCode && left_pressed.Contains(key8)) UnPress8();
-                    if(key9 == keyCode && right_pressed.Contains(key9)) UnPress9();
-                    if(key10 == keyCode && right_pressed.Contains(key10)) UnPress10();
-                    if(key11 == keyCode && right_pressed.Contains(key11)) UnPress11();
-                    if(key12 == keyCode && right_pressed.Contains(key12)) UnPress12();
-                    if(key13 == keyCode && left_pressed.Contains(key13)) UnPress13();
-                    if(key14 == keyCode && left_pressed.Contains(key14)) UnPress14();
-                    if(key15 == keyCode && left_pressed.Contains(key15)) UnPress15();
-                    if(key16 == keyCode && left_pressed.Contains(key16)) UnPress16();
-                    CheckHeadClick();
-                    break;
-            }
-        }
-
-        private void HookMouseDown(object sender, MouseEventArgs e) {
-            if(mode != "Default") return;
-            if(mouse) {
-                if(e.Button == MouseButtons.Left) RightHandPress(e.Button.ToString());
-                if(e.Button == MouseButtons.Right) LeftHandPress(e.Button.ToString());
-            }
-        }
-
-        private void HookMouseUp(object sender, MouseEventArgs e) {
-            if(right_pressed.Contains(e.Button.ToString())) RightHandUnpress(e.Button.ToString());
-            if(left_pressed.Contains(e.Button.ToString())) LeftHandUnpress(e.Button.ToString());
         }
 
         private void Press1() {

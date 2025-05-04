@@ -8,8 +8,6 @@ namespace LineKeyViewer
     public partial class Settings : Form
     {
         private App app;
-        private bool right_trigger = false;
-        private bool left_trigger = false;
        
         private bool key1_trigger = false;
         private bool key2_trigger = false;
@@ -36,13 +34,6 @@ namespace LineKeyViewer
             this.app = app;
             Location = new Point(app.Location.X + 25, app.Location.Y + 25);
             InitializeComponent();
-            foreach (string s in Properties.Settings.Default.defaultRight) Right.Items.Add(s);
-            foreach (string s in Properties.Settings.Default.defaultLeft) Left.Items.Add(s);
-            Background.BackColor = Properties.Settings.Default.defaultBackground;
-            Instrument.Text = Properties.Settings.Default.defaultInstrument;
-            if (Properties.Settings.Default.defaultTable) Table.Checked = true;
-            if (Properties.Settings.Default.defaultMouse) Mouse.Checked = true;
-
             if (Properties.Settings.Default.pianoTable) pianoTable.Checked = true;
             pianoBackground.BackColor = Properties.Settings.Default.pianoBackground;
             button1.Text = Properties.Settings.Default.pianoKey1;
@@ -62,17 +53,8 @@ namespace LineKeyViewer
             button15.Text = Properties.Settings.Default.pianoKey15;
             button16.Text = Properties.Settings.Default.pianoKey16;
 
-            switch (Properties.Settings.Default.Mode)
-            {
-                case "Default": Modes.SelectedIndex = 0; break;
-                case "Piano": Modes.SelectedIndex = 1; break;
-            }
-
             KeyPreview = true;
             hook.KeyDown += Settings_KeyDown;
-            Right.MouseDoubleClick += Right_DoubleClick;
-            Left.MouseDoubleClick += Left_DoubleClick;
-            Modes.SelectedIndexChanged += Mode_IndexChanged;
             Disposed += Settings_Disposed;
         }
         
@@ -80,51 +62,9 @@ namespace LineKeyViewer
         {
             hook.Dispose();
         }
-
-        // Settings form events
-        private void Mode_IndexChanged(object sender, EventArgs e)
-        {
-            switch (Modes.SelectedIndex)
-            {
-                case 0:
-                    app.SetMode("Default");
-                    Properties.Settings.Default.Mode = "Default";
-                    Properties.Settings.Default.Save();
-                    break;
-                case 1:
-                    app.SetMode("Piano");
-                    Properties.Settings.Default.Mode = "Piano";
-                    Properties.Settings.Default.Save();
-                    break;
-            }
-        }
         private void Settings_KeyDown(object sender, KeyEventArgs e)
         {
             string keyCode = e.KeyCode.ToString();
-            if (right_trigger)
-            {
-                right_trigger = false;
-                if (!app.right.Contains(keyCode))
-                {
-                    Properties.Settings.Default.defaultRight.Add(keyCode);
-                    app.right.Add(keyCode);
-                    Properties.Settings.Default.Save();
-                    Right.Items.Add(keyCode);
-                }
-                AddRight.Text = "<= Add";
-            }
-            if (left_trigger)
-            {
-                left_trigger = false;
-                if (!app.left.Contains(keyCode))
-                {
-                    Properties.Settings.Default.defaultLeft.Add(keyCode);
-                    app.left.Add(keyCode);
-                    Properties.Settings.Default.Save();
-                    Left.Items.Add(keyCode);
-                }
-                AddLeft.Text = "Add =>";
-            }
             if (key1_trigger)
             {
                 key1_trigger = false;
@@ -320,16 +260,6 @@ namespace LineKeyViewer
         }
         private void DisableTriggers()
         {
-            if (right_trigger)
-            {
-                right_trigger = false;
-                AddRight.Text = "<= Add";
-            }
-            if (left_trigger)
-            {
-                left_trigger = false;
-                AddLeft.Text = "Add =>";
-            }
             if (key1_trigger)
             {
                 key1_trigger = false;
@@ -412,102 +342,8 @@ namespace LineKeyViewer
             }
         }
 
-        // Default mode events
-        private void AddRight_Click(object sender, EventArgs e)
-        {
-            if (Properties.Settings.Default.Mode != "Default") return;
-            DisableTriggers();
-            right_trigger = true;
-            AddRight.Text = "*Press Key";
-        }
-        private void AddLeft_Click(object sender, EventArgs e)
-        {
-            if (Properties.Settings.Default.Mode != "Default") return;
-            DisableTriggers();
-            left_trigger = true;
-            AddLeft.Text = "*Press Key";
-        }
-        private void Background_Click(object sender, EventArgs e)
-        {
-            if (Properties.Settings.Default.Mode != "Default") return;
-            if (color.ShowDialog() == DialogResult.OK)
-            {
-                Background.BackColor = color.Color;
-                Properties.Settings.Default.defaultBackground = color.Color;
-                Properties.Settings.Default.Save();
-                app.Cat.BackColor = color.Color;
-            }
-        }
-        private void Instrument_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (Properties.Settings.Default.Mode != "Default") return;
-            Properties.Settings.Default.defaultInstrument = Instrument.Text;
-            Properties.Settings.Default.Save();
-            app.SetInstrument(Instrument.Text);
-        }
-        private void Mouse_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Properties.Settings.Default.Mode != "Default") return;
-            if (Mouse.Checked)
-            {
-                Properties.Settings.Default.defaultMouse = true;
-                app.mouse = true;
-                Properties.Settings.Default.Save();
-            }
-            else
-            { 
-                Properties.Settings.Default.defaultMouse = false;
-                app.mouse = false;
-                Properties.Settings.Default.Save();
-            }
-        }
-        private void Table_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Properties.Settings.Default.Mode != "Default") return;
-            if (Table.Checked)
-            {
-                Properties.Settings.Default.defaultTable = true;
-                Properties.Settings.Default.Save();
-                app.table = true;
-                app.TransparentTable(true);
-            }
-            else
-            {
-                Properties.Settings.Default.defaultTable = false;
-                Properties.Settings.Default.Save();
-                app.table = false;
-                app.TransparentTable(false);
-            }
-        }
-        private void Right_DoubleClick(object sender, MouseEventArgs e)
-        {
-            if (Properties.Settings.Default.Mode != "Default") return;
-            int index = Right.IndexFromPoint(e.Location);
-            if (index != ListBox.NoMatches)
-            {
-                Properties.Settings.Default.defaultRight.RemoveAt(index);
-                app.right.RemoveAt(index);
-                Properties.Settings.Default.Save();
-                Right.Items.RemoveAt(index);
-            }
-        }
-        private void Left_DoubleClick(object sender, MouseEventArgs e)
-        {
-            if (Properties.Settings.Default.Mode != "Default") return;
-            int index = Left.IndexFromPoint(e.Location);
-            if (index != ListBox.NoMatches)
-            {
-                Properties.Settings.Default.defaultLeft.RemoveAt(index);
-                app.left.RemoveAt(index);
-                Properties.Settings.Default.Save();
-                Left.Items.RemoveAt(index);
-            }
-        }
-
-        // Piano mode events
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             DisableTriggers();
             key1_trigger = true;
             button1.Text = "*Press";
@@ -515,7 +351,6 @@ namespace LineKeyViewer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             DisableTriggers();
             key2_trigger = true;
             button2.Text = "*Press";
@@ -523,7 +358,6 @@ namespace LineKeyViewer
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             DisableTriggers();
             key3_trigger = true;
             button3.Text = "*Press";
@@ -531,7 +365,6 @@ namespace LineKeyViewer
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             DisableTriggers();
             key4_trigger = true;
             button4.Text = "*Press";
@@ -539,7 +372,6 @@ namespace LineKeyViewer
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             DisableTriggers();
             key5_trigger = true;
             button5.Text = "*Press";
@@ -547,7 +379,6 @@ namespace LineKeyViewer
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             DisableTriggers();
             key6_trigger = true;
             button6.Text = "*Press";
@@ -555,7 +386,6 @@ namespace LineKeyViewer
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             DisableTriggers();
             key7_trigger = true;
             button7.Text = "*Press";
@@ -563,7 +393,6 @@ namespace LineKeyViewer
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             DisableTriggers();
             key8_trigger = true;
             button8.Text = "*Press";
@@ -571,7 +400,6 @@ namespace LineKeyViewer
         
         private void button9_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             DisableTriggers();
             key9_trigger = true;
             button9.Text = "*Press";
@@ -579,7 +407,6 @@ namespace LineKeyViewer
         
         private void button10_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             DisableTriggers();
             key10_trigger = true;
             button10.Text = "*Press";
@@ -587,7 +414,6 @@ namespace LineKeyViewer
         
         private void button11_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             DisableTriggers();
             key11_trigger = true;
             button11.Text = "*Press";
@@ -595,7 +421,6 @@ namespace LineKeyViewer
         
         private void button12_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             DisableTriggers();
             key12_trigger = true;
             button12.Text = "*Press";
@@ -603,7 +428,6 @@ namespace LineKeyViewer
         
         private void button13_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             DisableTriggers();
             key13_trigger = true;
             button13.Text = "*Press";
@@ -611,7 +435,6 @@ namespace LineKeyViewer
         
         private void button14_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             DisableTriggers();
             key14_trigger = true;
             button14.Text = "*Press";
@@ -619,7 +442,6 @@ namespace LineKeyViewer
         
         private void button15_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             DisableTriggers();
             key15_trigger = true;
             button15.Text = "*Press";
@@ -627,7 +449,6 @@ namespace LineKeyViewer
         
         private void button16_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             DisableTriggers();
             key16_trigger = true;
             button16.Text = "*Press";
@@ -635,7 +456,6 @@ namespace LineKeyViewer
 
         private void pianoBackground_Click(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             if (color.ShowDialog() == DialogResult.OK)
             {
                 pianoBackground.BackColor = color.Color;
@@ -647,7 +467,6 @@ namespace LineKeyViewer
 
         private void pianoTable_CheckedChanged(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Mode != "Piano") return;
             if (pianoTable.Checked)
             {
                 Properties.Settings.Default.pianoTable = true;

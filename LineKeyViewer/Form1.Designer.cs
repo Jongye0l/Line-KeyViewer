@@ -65,7 +65,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "App";
-            this.Text = "Bongo Cat | Press \'O\' to open settings";
+            this.Text = "Line KeyViewer | Press \'O\' to open settings";
             ((System.ComponentModel.ISupportInitialize) (this.Hands)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.Cat)).EndInit();
             this.ResumeLayout(false);
