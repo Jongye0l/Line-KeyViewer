@@ -74,8 +74,7 @@ namespace LineKeyViewer {
                     Properties.Settings.Default.Save();
                 }
                 button1.Text = ((Keys) app.key1).ToString();
-            }
-            if(key2_trigger) {
+            } else if(key2_trigger) {
                 key2_trigger = false;
                 if(keyCode != app.key1 && keyCode != app.key2 && keyCode != app.key3 && keyCode != app.key4 && keyCode != app.key5 && keyCode != app.key6 && keyCode != app.key7 && keyCode != app.key8 &&
                    keyCode != app.key9 && keyCode != app.key10 && keyCode != app.key11 && keyCode != app.key12 && keyCode != app.key13 && keyCode != app.key14 && keyCode != app.key15 && keyCode != app.key16) {
@@ -84,8 +83,7 @@ namespace LineKeyViewer {
                     Properties.Settings.Default.Save();
                 }
                 button2.Text = ((Keys) app.key2).ToString();
-            }
-            if(key3_trigger) {
+            } else if(key3_trigger) {
                 key3_trigger = false;
                 if(keyCode != app.key1 && keyCode != app.key2 && keyCode != app.key3 && keyCode != app.key4 && keyCode != app.key5 && keyCode != app.key6 && keyCode != app.key7 && keyCode != app.key8 &&
                    keyCode != app.key9 && keyCode != app.key10 && keyCode != app.key11 && keyCode != app.key12 && keyCode != app.key13 && keyCode != app.key14 && keyCode != app.key15 && keyCode != app.key16) {
@@ -94,8 +92,7 @@ namespace LineKeyViewer {
                     Properties.Settings.Default.Save();
                 }
                 button3.Text = ((Keys) app.key3).ToString();
-            }
-            if(key4_trigger) {
+            } else if(key4_trigger) {
                 key4_trigger = false;
                 if(keyCode != app.key1 && keyCode != app.key2 && keyCode != app.key3 && keyCode != app.key4 && keyCode != app.key5 && keyCode != app.key6 && keyCode != app.key7 && keyCode != app.key8 &&
                    keyCode != app.key9 && keyCode != app.key10 && keyCode != app.key11 && keyCode != app.key12 && keyCode != app.key13 && keyCode != app.key14 && keyCode != app.key15 && keyCode != app.key16) {
@@ -104,8 +101,7 @@ namespace LineKeyViewer {
                     Properties.Settings.Default.Save();
                 }
                 button4.Text = ((Keys) app.key4).ToString();
-            }
-            if(key5_trigger) {
+            } else if(key5_trigger) {
                 key5_trigger = false;
                 if(keyCode != app.key1 && keyCode != app.key2 && keyCode != app.key3 && keyCode != app.key4 && keyCode != app.key5 && keyCode != app.key6 && keyCode != app.key7 && keyCode != app.key8 &&
                    keyCode != app.key9 && keyCode != app.key10 && keyCode != app.key11 && keyCode != app.key12 && keyCode != app.key13 && keyCode != app.key14 && keyCode != app.key15 && keyCode != app.key16) {
@@ -114,8 +110,7 @@ namespace LineKeyViewer {
                     Properties.Settings.Default.Save();
                 }
                 button5.Text = ((Keys) app.key5).ToString();
-            }
-            if(key6_trigger) {
+            } else if(key6_trigger) {
                 key6_trigger = false;
                 if(keyCode != app.key1 && keyCode != app.key2 && keyCode != app.key3 && keyCode != app.key4 && keyCode != app.key5 && keyCode != app.key6 && keyCode != app.key7 && keyCode != app.key8 &&
                    keyCode != app.key9 && keyCode != app.key10 && keyCode != app.key11 && keyCode != app.key12 && keyCode != app.key13 && keyCode != app.key14 && keyCode != app.key15 && keyCode != app.key16) {
@@ -124,8 +119,7 @@ namespace LineKeyViewer {
                     Properties.Settings.Default.Save();
                 }
                 button6.Text = ((Keys) app.key6).ToString();
-            }
-            if(key7_trigger) {
+            } else if(key7_trigger) {
                 key7_trigger = false;
                 if(keyCode != app.key1 && keyCode != app.key2 && keyCode != app.key3 && keyCode != app.key4 && keyCode != app.key5 && keyCode != app.key6 && keyCode != app.key7 && keyCode != app.key8 &&
                    keyCode != app.key9 && keyCode != app.key10 && keyCode != app.key11 && keyCode != app.key12 && keyCode != app.key13 && keyCode != app.key14 && keyCode != app.key15 && keyCode != app.key16) {
@@ -134,8 +128,7 @@ namespace LineKeyViewer {
                     Properties.Settings.Default.Save();
                 }
                 button7.Text = ((Keys) app.key7).ToString();
-            }
-            if(key8_trigger) {
+            } else if(key8_trigger) {
                 key8_trigger = false;
                 if(keyCode != app.key1 && keyCode != app.key2 && keyCode != app.key3 && keyCode != app.key4 && keyCode != app.key5 && keyCode != app.key6 && keyCode != app.key7 && keyCode != app.key8 &&
                    keyCode != app.key9 && keyCode != app.key10 && keyCode != app.key11 && keyCode != app.key12 && keyCode != app.key13 && keyCode != app.key14 && keyCode != app.key15 && keyCode != app.key16) {
@@ -144,8 +137,7 @@ namespace LineKeyViewer {
                     Properties.Settings.Default.Save();
                 }
                 button8.Text = ((Keys) app.key8).ToString();
-            }
-            if(key9_trigger) {
+            } else if(key9_trigger) {
                 key9_trigger = false;
                 if(keyCode != app.key1 && keyCode != app.key2 && keyCode != app.key3 && keyCode != app.key4 && keyCode != app.key5 && keyCode != app.key6 && keyCode != app.key7 && keyCode != app.key8 &&
                    keyCode != app.key9 && keyCode != app.key10 && keyCode != app.key11 && keyCode != app.key12 && keyCode != app.key13 && keyCode != app.key14 && keyCode != app.key15 && keyCode != app.key16) {
@@ -154,8 +146,7 @@ namespace LineKeyViewer {
                     Properties.Settings.Default.Save();
                 }
                 button9.Text = ((Keys) app.key9).ToString();
-            }
-            if(key10_trigger) {
+            } else if(key10_trigger) {
                 key10_trigger = false;
                 if(keyCode != app.key1 && keyCode != app.key2 && keyCode != app.key3 && keyCode != app.key4 && keyCode != app.key5 && keyCode != app.key6 && keyCode != app.key7 && keyCode != app.key8 &&
                    keyCode != app.key9 && keyCode != app.key10 && keyCode != app.key11 && keyCode != app.key12 && keyCode != app.key13 && keyCode != app.key14 && keyCode != app.key15 && keyCode != app.key16) {
@@ -164,8 +155,7 @@ namespace LineKeyViewer {
                     Properties.Settings.Default.Save();
                 }
                 button10.Text = ((Keys) app.key10).ToString();
-            }
-            if(key11_trigger) {
+            } else if(key11_trigger) {
                 key11_trigger = false;
                 if(keyCode != app.key1 && keyCode != app.key2 && keyCode != app.key3 && keyCode != app.key4 && keyCode != app.key5 && keyCode != app.key6 && keyCode != app.key7 && keyCode != app.key8 &&
                    keyCode != app.key9 && keyCode != app.key10 && keyCode != app.key11 && keyCode != app.key12 && keyCode != app.key13 && keyCode != app.key14 && keyCode != app.key15 && keyCode != app.key16) {
@@ -174,8 +164,7 @@ namespace LineKeyViewer {
                     Properties.Settings.Default.Save();
                 }
                 button11.Text = ((Keys) app.key11).ToString();
-            }
-            if(key12_trigger) {
+            } else if(key12_trigger) {
                 key12_trigger = false;
                 if(keyCode != app.key1 && keyCode != app.key2 && keyCode != app.key3 && keyCode != app.key4 && keyCode != app.key5 && keyCode != app.key6 && keyCode != app.key7 && keyCode != app.key8 &&
                    keyCode != app.key9 && keyCode != app.key10 && keyCode != app.key11 && keyCode != app.key12 && keyCode != app.key13 && keyCode != app.key14 && keyCode != app.key15 && keyCode != app.key16) {
@@ -184,8 +173,7 @@ namespace LineKeyViewer {
                     Properties.Settings.Default.Save();
                 }
                 button12.Text = ((Keys) app.key12).ToString();
-            }
-            if(key13_trigger) {
+            } else if(key13_trigger) {
                 key13_trigger = false;
                 if(keyCode != app.key1 && keyCode != app.key2 && keyCode != app.key3 && keyCode != app.key4 && keyCode != app.key5 && keyCode != app.key6 && keyCode != app.key7 && keyCode != app.key8 &&
                    keyCode != app.key9 && keyCode != app.key10 && keyCode != app.key11 && keyCode != app.key12 && keyCode != app.key13 && keyCode != app.key14 && keyCode != app.key15 && keyCode != app.key16) {
@@ -194,8 +182,7 @@ namespace LineKeyViewer {
                     Properties.Settings.Default.Save();
                 }
                 button13.Text = ((Keys) app.key13).ToString();
-            }
-            if(key14_trigger) {
+            } else if(key14_trigger) {
                 key14_trigger = false;
                 if(keyCode != app.key1 && keyCode != app.key2 && keyCode != app.key3 && keyCode != app.key4 && keyCode != app.key5 && keyCode != app.key6 && keyCode != app.key7 && keyCode != app.key8 &&
                    keyCode != app.key9 && keyCode != app.key10 && keyCode != app.key11 && keyCode != app.key12 && keyCode != app.key13 && keyCode != app.key14 && keyCode != app.key15 && keyCode != app.key16) {
@@ -204,8 +191,7 @@ namespace LineKeyViewer {
                     Properties.Settings.Default.Save();
                 }
                 button14.Text = ((Keys) app.key14).ToString();
-            }
-            if(key15_trigger) {
+            } else if(key15_trigger) {
                 key15_trigger = false;
                 if(keyCode != app.key1 && keyCode != app.key2 && keyCode != app.key3 && keyCode != app.key4 && keyCode != app.key5 && keyCode != app.key6 && keyCode != app.key7 && keyCode != app.key8 &&
                    keyCode != app.key9 && keyCode != app.key10 && keyCode != app.key11 && keyCode != app.key12 && keyCode != app.key13 && keyCode != app.key14 && keyCode != app.key15 && keyCode != app.key16) {
@@ -214,8 +200,7 @@ namespace LineKeyViewer {
                     Properties.Settings.Default.Save();
                 }
                 button15.Text = ((Keys) app.key15).ToString();
-            }
-            if(key16_trigger) {
+            } else if(key16_trigger) {
                 key16_trigger = false;
                 if(keyCode != app.key1 && keyCode != app.key2 && keyCode != app.key3 && keyCode != app.key4 && keyCode != app.key5 && keyCode != app.key6 && keyCode != app.key7 && keyCode != app.key8 &&
                    keyCode != app.key9 && keyCode != app.key10 && keyCode != app.key11 && keyCode != app.key12 && keyCode != app.key13 && keyCode != app.key14 && keyCode != app.key15 && keyCode != app.key16) {
@@ -231,64 +216,49 @@ namespace LineKeyViewer {
             if(key1_trigger) {
                 key1_trigger = false;
                 button1.Text = ((Keys) app.key1).ToString();
-            }
-            if(key2_trigger) {
+            } else if(key2_trigger) {
                 key2_trigger = false;
                 button2.Text = ((Keys) app.key2).ToString();
-            }
-            if(key3_trigger) {
+            } else if(key3_trigger) {
                 key3_trigger = false;
                 button3.Text = ((Keys) app.key3).ToString();
-            }
-            if(key4_trigger) {
+            } else if(key4_trigger) {
                 key4_trigger = false;
                 button4.Text = ((Keys) app.key4).ToString();
-            }
-            if(key5_trigger) {
+            } else if(key5_trigger) {
                 key5_trigger = false;
                 button5.Text = ((Keys) app.key5).ToString();
-            }
-            if(key6_trigger) {
+            } else if(key6_trigger) {
                 key6_trigger = false;
                 button6.Text = ((Keys) app.key6).ToString();
-            }
-            if(key7_trigger) {
+            } else if(key7_trigger) {
                 key7_trigger = false;
                 button7.Text = ((Keys) app.key7).ToString();
-            }
-            if(key8_trigger) {
+            } else if(key8_trigger) {
                 key8_trigger = false;
                 button8.Text = ((Keys) app.key8).ToString();
-            }
-            if(key9_trigger) {
+            } else if(key9_trigger) {
                 key9_trigger = false;
                 button9.Text = ((Keys) app.key9).ToString();
-            }
-            if(key10_trigger) {
+            } else if(key10_trigger) {
                 key10_trigger = false;
                 button10.Text = ((Keys) app.key10).ToString();
-            }
-            if(key11_trigger) {
+            } else if(key11_trigger) {
                 key11_trigger = false;
                 button11.Text = ((Keys) app.key11).ToString();
-            }
-            if(key12_trigger) {
+            } else if(key12_trigger) {
                 key12_trigger = false;
                 button12.Text = ((Keys) app.key12).ToString();
-            }
-            if(key13_trigger) {
+            } else if(key13_trigger) {
                 key13_trigger = false;
                 button13.Text = ((Keys) app.key13).ToString();
-            }
-            if(key14_trigger) {
+            } else if(key14_trigger) {
                 key14_trigger = false;
                 button14.Text = ((Keys) app.key14).ToString();
-            }
-            if(key15_trigger) {
+            } else if(key15_trigger) {
                 key15_trigger = false;
                 button15.Text = ((Keys) app.key15).ToString();
-            }
-            if(key16_trigger) {
+            } else if(key16_trigger) {
                 key16_trigger = false;
                 button16.Text = ((Keys) app.key16).ToString();
             }
