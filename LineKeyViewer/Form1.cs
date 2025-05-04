@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
-using System.Linq;
 using System.Net;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gma.System.MouseKeyHook;
@@ -63,41 +59,32 @@ namespace LineKeyViewer {
         }
 
         private async void CheckUpdates() {
-            try {
-                GitHubClient client = new GitHubClient(new ProductHeaderValue("Line-KeyViewer"));
-                IReadOnlyList<Release> releases = await client.Repository.Release.GetAll("Jongye0l", "Line-KeyViewer");
-                string message = "";
-                string version = 'v' + typeof(Program).Assembly.GetName().Version.ToString();
-                for(int i = 0; releases[i].TagName != version; ++i) 
-                    message += "\n" + releases[i].TagName + ":\n" + releases[i].Body + "\n";
-                if(message != "") {
-                    DialogResult result = MessageBox.Show(string.Format(korean ? "새 버전 발견:\n{0}\n새 버전으로 설치하시겠습니까?" : "Updates avaliable:\n{0}\nWould you like to download now?", message), "Line KeyViewer", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                    if(result == DialogResult.Yes) System.Diagnostics.Process.Start("https://github.com/Jongye0l/Line-Keyviewer/releases/download/" + releases[0].TagName + "/LineKeyViewer.exe");
-                }
-            } catch {
-                // ignored
+            GitHubClient client = new GitHubClient(new ProductHeaderValue("Line-KeyViewer"));
+            IReadOnlyList<Release> releases = await client.Repository.Release.GetAll("Jongye0l", "Line-KeyViewer");
+            string message = "";
+            string version = 'v' + typeof(Program).Assembly.GetName().Version.ToString();
+            for(int i = 0; releases[i].TagName != version; ++i) 
+                message += "\n" + releases[i].TagName + ":\n" + releases[i].Body + "\n";
+            if(message != "") {
+                DialogResult result = MessageBox.Show(string.Format(korean ? "새 버전 발견:\n{0}\n새 버전으로 설치하시겠습니까?" : "Updates avaliable:\n{0}\nWould you like to download now?", message), "Line KeyViewer", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                if(result == DialogResult.Yes) System.Diagnostics.Process.Start("https://github.com/Jongye0l/Line-Keyviewer/releases/download/" + releases[0].TagName + "/LineKeyViewer.exe");
             }
         }
 
         private async void CheckMods() {
-            try {
-                if(Properties.Settings.Default.NotificationMod) return;
-                WebClient webClient = new WebClient();
-                byte[] data = await webClient.DownloadDataTaskAsync("http://jalib.jongyeol.kr/modInfoV2/LineKeyViewer/latest/0");
-                if(data[0] == 0) return;
-                int size = data[1] << 24 | data[2] << 16 | data[3] << 8 | data[4];
-                Console.WriteLine("Found string size :" + size);
-                byte[] stringData = new byte[size];
-                Array.Copy(data, 5, stringData, 0, size);
-                string version = System.Text.Encoding.UTF8.GetString(stringData);
-                DialogResult result = MessageBox.Show(string.Format(korean ? "얼불춤 모드 발견\n버전: {0}\n얼불춤 모드를 적용하시겠습니까?" : "Adofai mod available:\n{0}\nWould you like to apply mod now?", version), "Line KeyViewer Adofai Mods", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Asterisk);
-                if(result == DialogResult.Yes) System.Diagnostics.Process.Start("http://jalib.jongyeol.kr/modApplicator/LineKeyViewer/latest");
-                else if(result == DialogResult.No) {
-                    Properties.Settings.Default.NotificationMod = true;
-                    Properties.Settings.Default.Save();
-                }
-            } catch (Exception e) {
-                Console.WriteLine(e);
+            if(Properties.Settings.Default.NotificationMod) return;
+            WebClient webClient = new WebClient();
+            byte[] data = await webClient.DownloadDataTaskAsync("http://jalib.jongyeol.kr/modInfoV2/LineKeyViewer/latest/0");
+            if(data[0] == 0) return;
+            int size = data[1] << 24 | data[2] << 16 | data[3] << 8 | data[4];
+            byte[] stringData = new byte[size];
+            Array.Copy(data, 5, stringData, 0, size);
+            string version = System.Text.Encoding.UTF8.GetString(stringData);
+            DialogResult result = MessageBox.Show(string.Format(korean ? "얼불춤 모드 발견\n버전: {0}\n얼불춤 모드를 적용하시겠습니까?" : "Adofai mod available:\n{0}\nWould you like to apply mod now?", version), "Line KeyViewer Adofai Mods", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Asterisk);
+            if(result == DialogResult.Yes) System.Diagnostics.Process.Start("http://jalib.jongyeol.kr/modApplicator/LineKeyViewer/latest");
+            else if(result == DialogResult.No) {
+                Properties.Settings.Default.NotificationMod = true;
+                Properties.Settings.Default.Save();
             }
         }
 
@@ -155,55 +142,47 @@ namespace LineKeyViewer {
         }
 
         private async void HookKeyDown(object sender, KeyEventArgs e) {
-            try {
-                await Task.Yield();
-                int keyCode = e.KeyValue;
-                if(key1 == keyCode) Press1();
-                if(key2 == keyCode) Press2();
-                if(key3 == keyCode) Press3();
-                if(key4 == keyCode) Press4();
-                if(key5 == keyCode) Press5();
-                if(key6 == keyCode) Press6();
-                if(key7 == keyCode) Press7();
-                if(key8 == keyCode) Press8();
-                if(key9 == keyCode) Press9();
-                if(key10 == keyCode) Press10();
-                if(key11 == keyCode) Press11();
-                if(key12 == keyCode) Press12();
-                if(key13 == keyCode) Press13();
-                if(key14 == keyCode) Press14();
-                if(key15 == keyCode) Press15();
-                if(key16 == keyCode) Press16();
-                CheckHeadClick();
-            } catch (Exception ex) {
-                Console.WriteLine(ex);
-            }
+            await Task.Yield();
+            int keyCode = e.KeyValue;
+            if(key1 == keyCode) Press1();
+            if(key2 == keyCode) Press2();
+            if(key3 == keyCode) Press3();
+            if(key4 == keyCode) Press4();
+            if(key5 == keyCode) Press5();
+            if(key6 == keyCode) Press6();
+            if(key7 == keyCode) Press7();
+            if(key8 == keyCode) Press8();
+            if(key9 == keyCode) Press9();
+            if(key10 == keyCode) Press10();
+            if(key11 == keyCode) Press11();
+            if(key12 == keyCode) Press12();
+            if(key13 == keyCode) Press13();
+            if(key14 == keyCode) Press14();
+            if(key15 == keyCode) Press15();
+            if(key16 == keyCode) Press16();
+            CheckHeadClick();
         }
 
         private async void HookKeyUp(object sender, KeyEventArgs e) {
-            try {
-                await Task.Yield();
-                int keyCode = e.KeyValue;
-                if(key1 == keyCode && right_pressed.Contains(keyCode)) UnPress1();
-                if(key2 == keyCode && right_pressed.Contains(keyCode)) UnPress2();
-                if(key3 == keyCode && right_pressed.Contains(keyCode)) UnPress3();
-                if(key4 == keyCode && right_pressed.Contains(keyCode)) UnPress4();
-                if(key5 == keyCode && left_pressed.Contains(keyCode)) UnPress5();
-                if(key6 == keyCode && left_pressed.Contains(keyCode)) UnPress6();
-                if(key7 == keyCode && left_pressed.Contains(keyCode)) UnPress7();
-                if(key8 == keyCode && left_pressed.Contains(keyCode)) UnPress8();
-                if(key9 == keyCode && right_pressed.Contains(keyCode)) UnPress9();
-                if(key10 == keyCode && right_pressed.Contains(keyCode)) UnPress10();
-                if(key11 == keyCode && right_pressed.Contains(keyCode)) UnPress11();
-                if(key12 == keyCode && right_pressed.Contains(keyCode)) UnPress12();
-                if(key13 == keyCode && left_pressed.Contains(keyCode)) UnPress13();
-                if(key14 == keyCode && left_pressed.Contains(keyCode)) UnPress14();
-                if(key15 == keyCode && left_pressed.Contains(keyCode)) UnPress15();
-                if(key16 == keyCode && left_pressed.Contains(keyCode)) UnPress16();
-                CheckHeadClick();
-            } catch (Exception ex) {
-                Console.WriteLine(ex);
-            }
+            await Task.Yield();
+            int keyCode = e.KeyValue;
+            if(key1 == keyCode && right_pressed.Contains(keyCode)) UnPress1();
+            if(key2 == keyCode && right_pressed.Contains(keyCode)) UnPress2();
+            if(key3 == keyCode && right_pressed.Contains(keyCode)) UnPress3();
+            if(key4 == keyCode && right_pressed.Contains(keyCode)) UnPress4();
+            if(key5 == keyCode && left_pressed.Contains(keyCode)) UnPress5();
+            if(key6 == keyCode && left_pressed.Contains(keyCode)) UnPress6();
+            if(key7 == keyCode && left_pressed.Contains(keyCode)) UnPress7();
+            if(key8 == keyCode && left_pressed.Contains(keyCode)) UnPress8();
+            if(key9 == keyCode && right_pressed.Contains(keyCode)) UnPress9();
+            if(key10 == keyCode && right_pressed.Contains(keyCode)) UnPress10();
+            if(key11 == keyCode && right_pressed.Contains(keyCode)) UnPress11();
+            if(key12 == keyCode && right_pressed.Contains(keyCode)) UnPress12();
+            if(key13 == keyCode && left_pressed.Contains(keyCode)) UnPress13();
+            if(key14 == keyCode && left_pressed.Contains(keyCode)) UnPress14();
+            if(key15 == keyCode && left_pressed.Contains(keyCode)) UnPress15();
+            if(key16 == keyCode && left_pressed.Contains(keyCode)) UnPress16();
+            CheckHeadClick();
         }
 
         private void Press1() {
