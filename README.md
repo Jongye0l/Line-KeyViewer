@@ -1,15 +1,6 @@
-## Bongo Cat app
+## LineKeyViewer Program
+![C#](https://img.shields.io/badge/Lang-Csharp-c9c8e4.svg?&logo=c#)
+![Rider](https://img.shields.io/badge/IDE-Rider-c9c8e4.svg?&logo=rider)
+![Download](https://img.shields.io/github/downloads/Jongye0l/Line-KeyViewer/LineKeyViewer.exe)
 
-Just cute meme thing....
-
-![Hehe](https://puu.sh/ByUbB/8c8306f25d.png)
-
-## In planes...
-
-- PP cat
-
-![Hehe](https://puu.sh/ByUhS/49def83bb7.png)
-
-- Piano mode
-
-![Hehe](https://puu.sh/ByUjZ/fef7c7353a.png)
+![](docs/1.gif)
