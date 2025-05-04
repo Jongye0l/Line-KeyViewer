@@ -37,6 +37,7 @@ namespace LineKeyViewer {
         private Bitmap bg = Properties.Resources.empty;
         private Bitmap front = Properties.Resources.empty;
         private bool korean = CultureInfo.CurrentCulture.Name == "ko-KR";
+        private bool adofaiAvailable = false;
 
         public App() {
             Task.Run(CheckUpdates);
@@ -52,6 +53,7 @@ namespace LineKeyViewer {
             Cat.Controls.Add(Hands);
             SetupMode();
             Task.Run(Winking);
+            if(korean) Text = "LineKeyViewer | \'O\'키를 눌러 설정을 여세요";
         }
 
         private void OnDispose(object sender, EventArgs e) {
@@ -77,20 +79,24 @@ namespace LineKeyViewer {
 
         private async void CheckMods() {
             try {
-                if(Properties.Settings.Default.NotificationMod) return;
                 WebClient webClient = new WebClient();
-                byte[] data = await webClient.DownloadDataTaskAsync("http://jalib.jongyeol.kr/modInfoV2/LineKeyViewer/latest/0");
+                byte[] data = //await webClient.DownloadDataTaskAsync("http://jalib.jongyeol.kr/modInfoV2/LineKeyViewer/latest/0");
+                    await webClient.DownloadDataTaskAsync("http://jalib.jongyeol.kr/modInfoV2/PlanetTweaks/1.0.0.0/0");
                 if(data[0] == 0) return;
-                int size = data[1] << 24 | data[2] << 16 | data[3] << 8 | data[4];
-                byte[] stringData = new byte[size];
-                Array.Copy(data, 5, stringData, 0, size);
-                string version = System.Text.Encoding.UTF8.GetString(stringData);
-                DialogResult result = MessageBox.Show(string.Format(korean ? "얼불춤 모드 발견\n버전: {0}\n얼불춤 모드를 적용하시겠습니까?" : "Adofai mod available:\n{0}\nWould you like to apply mod now?", version), "Line KeyViewer Adofai Mods", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Asterisk);
-                if(result == DialogResult.Yes) System.Diagnostics.Process.Start("http://jalib.jongyeol.kr/modApplicator/LineKeyViewer/latest");
-                else if(result == DialogResult.No) {
-                    Properties.Settings.Default.NotificationMod = true;
-                    Properties.Settings.Default.Save();
+                if(!Properties.Settings.Default.NotificationMod) {
+                    int size = data[1] << 24 | data[2] << 16 | data[3] << 8 | data[4];
+                    byte[] stringData = new byte[size];
+                    Array.Copy(data, 5, stringData, 0, size);
+                    string version = System.Text.Encoding.UTF8.GetString(stringData);
+                    DialogResult result = MessageBox.Show(string.Format(korean ? "얼불춤 모드 발견\n버전: {0}\n얼불춤 모드를 적용하시겠습니까?" : "Adofai mod available:\n{0}\nWould you like to apply mod now?", version), "Line KeyViewer Adofai Mods", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Asterisk);
+                    if(result == DialogResult.Yes) System.Diagnostics.Process.Start("http://jalib.jongyeol.kr/modApplicator/LineKeyViewer/latest");
+                    else if(result == DialogResult.No) {
+                        Properties.Settings.Default.NotificationMod = true;
+                        Properties.Settings.Default.Save();
+                    }
                 }
+                adofaiAvailable = true;
+                Text = korean ? "LineKeyViewer | \'O\'키를 눌러 설정을 여세요 | \'P\'키를 눌러 얼불춤 모드를 적용하세요" : "LineKeyViewer | Press \'O\' to open settings | Press \'P\' to apply adofai mod";
             } catch (Exception) {
                 // ignored
             }
@@ -100,7 +106,7 @@ namespace LineKeyViewer {
             if(e.KeyValue == 79) {
                 Settings s = new Settings(this);
                 s.Show();
-            }
+            } else if(adofaiAvailable && e.KeyValue == 80) System.Diagnostics.Process.Start("http://jalib.jongyeol.kr/modApplicator/LineKeyViewer/latest");
         }
 
         private async void Winking() {
