@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>BongoCat</RootNamespace>
     <AssemblyName>BongoCat</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
@@ -166,6 +166,30 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1.ico" />
+    <Content Include="Resources\empty.png" />
+    <Content Include="Resources\key10.png" />
+    <Content Include="Resources\key11.png" />
+    <Content Include="Resources\key12.png" />
+    <Content Include="Resources\key13.png" />
+    <Content Include="Resources\key14.png" />
+    <Content Include="Resources\key15.png" />
+    <Content Include="Resources\key16.png" />
+    <Content Include="Resources\key9.png" />
+    <Content Include="Resources\Line1.png" />
+    <Content Include="Resources\Line_head_16.png" />
+    <Content Include="Resources\Line_key_16_1.png" />
+    <Content Include="Resources\Line_table.png" />
+    <Content Include="Resources\Line_table_wink.png" />
+    <Content Include="Resources\Line_wink.png" />
+    <Content Include="Resources\pressed_key10.png" />
+    <Content Include="Resources\pressed_key11.png" />
+    <Content Include="Resources\pressed_key12.png" />
+    <Content Include="Resources\pressed_key13.png" />
+    <Content Include="Resources\pressed_key14.png" />
+    <Content Include="Resources\pressed_key15.png" />
+    <Content Include="Resources\pressed_key16.png" />
+    <Content Include="Resources\pressed_key9.png" />
+    <Content Include="Resources\table.png" />
     <None Include="Resources\pressed_key3.png" />
     <None Include="Resources\pressed_key2.png" />
     <None Include="Resources\pressed_key1.png" />

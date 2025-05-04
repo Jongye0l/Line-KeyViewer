@@ -121,6 +121,15 @@
   <data name="cat_table" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cat_table.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="line_table" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Line_table.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="table" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\table.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="keyboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keyboard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,6 +145,9 @@
   <data name="cat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="line" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Line1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="controller" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\controller.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -148,6 +160,9 @@
   <data name="cat_table_wink" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cat_table_wink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="line_table_wink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Line_table_wink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="unpressed_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\unpressed_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -156,6 +171,9 @@
   </data>
   <data name="cat_wink" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cat_wink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="line_wink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Line_wink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="key6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\key6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,6 +202,33 @@
   <data name="key8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\key8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="key9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\key9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="key10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\key10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="key11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\key11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="key12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\key12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="key13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\key13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="key14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\key14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="key15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\key15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="key16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\key16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="line_head" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Line_head.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="empt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\empt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -210,5 +255,29 @@
   </data>
   <data name="pressed_key8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pressed_key8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pressed_key9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pressed_key9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pressed_key10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pressed_key10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pressed_key11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pressed_key11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pressed_key12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pressed_key12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pressed_key13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pressed_key13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pressed_key14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pressed_key14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pressed_key15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pressed_key15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pressed_key16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pressed_key16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
