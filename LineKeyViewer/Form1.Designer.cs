@@ -1,4 +1,4 @@
-﻿namespace BongoCat
+﻿namespace LineKeyViewer
 {
     partial class App
     {
@@ -46,7 +46,7 @@
             // Cat
             // 
             this.Cat.BackColor = System.Drawing.Color.Transparent;
-            this.Cat.BackgroundImage = global::BongoCat.Properties.Resources.cat_table;
+            this.Cat.BackgroundImage = global::LineKeyViewer.Properties.Resources.cat_table;
             this.Cat.Location = new System.Drawing.Point(0, 0);
             this.Cat.Name = "Cat";
             this.Cat.Size = new System.Drawing.Size(630, 415);

@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace BongoCat
+namespace LineKeyViewer
 {
     public partial class Settings : Form
     {

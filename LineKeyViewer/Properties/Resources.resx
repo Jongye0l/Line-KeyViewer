@@ -229,9 +229,6 @@
   <data name="line_head" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Line_head.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="empt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\empt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="pressed_key1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pressed_key1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{97164F86-0DDE-4696-8C3B-93DE016E0A93}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>BongoCat</RootNamespace>
-    <AssemblyName>BongoCat</AssemblyName>
+    <RootNamespace>LineKeyViewer</RootNamespace>
+    <AssemblyName>LineKeyViewer</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -176,7 +176,7 @@
     <Content Include="Resources\key16.png" />
     <Content Include="Resources\key9.png" />
     <Content Include="Resources\Line1.png" />
-    <Content Include="Resources\Line_head_16.png" />
+    <Content Include="Resources\Line_head.png" />
     <Content Include="Resources\Line_key_16_1.png" />
     <Content Include="Resources\Line_table.png" />
     <Content Include="Resources\Line_table_wink.png" />
@@ -198,7 +198,6 @@
     <None Include="Resources\pressed_key6.png" />
     <None Include="Resources\pressed_key5.png" />
     <None Include="Resources\pressed_key4.png" />
-    <None Include="Resources\empt.png" />
     <None Include="Resources\key8.png" />
     <None Include="Resources\key7.png" />
     <None Include="Resources\key6.png" />

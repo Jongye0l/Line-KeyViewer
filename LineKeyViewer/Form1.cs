@@ -1,17 +1,16 @@
-﻿using System.Windows.Forms;
-using System.Threading.Tasks;
-using Octokit;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using Gma.System.MouseKeyHook;
-using System.Collections.Specialized;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Gma.System.MouseKeyHook;
+using Octokit;
 
-namespace BongoCat {
+namespace LineKeyViewer {
     public partial class App : Form {
-        string version = "0.0.0";
         private IKeyboardMouseEvents hook = Hook.GlobalEvents();
 
         private StringCollection right_pressed = new StringCollection();
@@ -24,8 +23,8 @@ namespace BongoCat {
         public StringCollection left = new StringCollection();
         public bool mouse, table, headClick;
 
-        private Bitmap bg = Properties.Resources.empt;
-        private Bitmap front = Properties.Resources.empt;
+        private Bitmap bg = Properties.Resources.empty;
+        private Bitmap front = Properties.Resources.empty;
 
         public App() {
             CheckUpdates();
@@ -49,9 +48,9 @@ namespace BongoCat {
                     GitHubClient client = new GitHubClient(new ProductHeaderValue("Line-KeyViewer"));
                     IReadOnlyList<Release> releases = await client.Repository.Release.GetAll("Jongye0l", "Line-KeyViewer");
                     string message = "";
-                    for(int i = 0; releases[i].TagName != version; ++i) {
+                    string version = 'v' + typeof(Program).Assembly.GetName().Version.ToString();
+                    for(int i = 0; releases[i].TagName != version; ++i) 
                         message += "\n" + releases[i].TagName + ":\n" + releases[i].Body + "\n";
-                    }
                     if(message != "") {
                         DialogResult result = MessageBox.Show("Updates avaliable:\n" + message + "\nWould you like to download now?", "Line KeyViewer", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                         if(result == DialogResult.Yes) System.Diagnostics.Process.Start("https://github.com/Jongye0l/Line-Keyviewer/releases/download/" + releases[0].TagName + "/LineKeyViewer.exe");
@@ -91,7 +90,7 @@ namespace BongoCat {
                 case "Controller": Cat.Image = Properties.Resources.controller; break;
                 case "Piano": Cat.Image = Properties.Resources.piano; break;
             }
-            this.Cat.Update();
+            Cat.Update();
         }
 
         public void TransparentTable(bool Value) {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BongoCat
+namespace LineKeyViewer
 {
     static class Program
     {

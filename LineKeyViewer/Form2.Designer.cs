@@ -1,4 +1,4 @@
-﻿namespace BongoCat
+﻿namespace LineKeyViewer
 {
     partial class Settings
     {
