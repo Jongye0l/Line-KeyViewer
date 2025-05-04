@@ -69,7 +69,7 @@ namespace LineKeyViewer {
 
         private async void Winking() {
             Random rnd = new Random();
-            while(Thread.CurrentThread.IsAlive) {
+            while(IsDisposed) {
                 do {
                     await Task.Delay(rnd.Next(3000, 7000));
                 } while(headClick);
@@ -169,7 +169,7 @@ namespace LineKeyViewer {
             if(!right_pressed.Contains(key1)) {
                 right_pressed.Add(key1);
                 Hands.BackgroundImage = Superimpose(bg, Properties.Resources.key1, 117, 232);
-                if(!headClick) Hands.Image = Impose(front, Properties.Resources.pressed_key1, 0, 0);
+                Hands.Image = Impose(front, headClick ? Properties.Resources.line_head : Properties.Resources.pressed_key1, 0, 0);
             }
         }
 
@@ -177,7 +177,7 @@ namespace LineKeyViewer {
             if(!right_pressed.Contains(key2)) {
                 right_pressed.Add(key2);
                 Hands.BackgroundImage = Superimpose(bg, Properties.Resources.key2, 151, 239);
-                if(!headClick) Hands.Image = Impose(front, Properties.Resources.pressed_key2, 0, 0);
+                Hands.Image = Impose(front, headClick ? Properties.Resources.line_head : Properties.Resources.pressed_key2, 0, 0);
             }
         }
 
@@ -185,7 +185,7 @@ namespace LineKeyViewer {
             if(!right_pressed.Contains(key3)) {
                 right_pressed.Add(key3);
                 Hands.BackgroundImage = Superimpose(bg, Properties.Resources.key3, 186, 246);
-                if(!headClick) Hands.Image = Impose(front, Properties.Resources.pressed_key3, 0, 0);
+                Hands.Image = Impose(front, headClick ? Properties.Resources.line_head : Properties.Resources.pressed_key3, 0, 0);
             }
         }
 
@@ -193,7 +193,7 @@ namespace LineKeyViewer {
             if(!right_pressed.Contains(key4)) {
                 right_pressed.Add(key4);
                 Hands.BackgroundImage = Superimpose(bg, Properties.Resources.key4, 217, 254);
-                if(!headClick) Hands.Image = Impose(front, Properties.Resources.pressed_key4, 0, 0);
+                Hands.Image = Impose(front, headClick ? Properties.Resources.line_head : Properties.Resources.pressed_key4, 0, 0);
             }
         }
 
@@ -201,7 +201,7 @@ namespace LineKeyViewer {
             if(!left_pressed.Contains(key5)) {
                 left_pressed.Add(key5);
                 Hands.BackgroundImage = Superimpose(bg, Properties.Resources.key5, 247, 262);
-                if(!headClick) Hands.Image = Impose(front, Properties.Resources.pressed_key5, 270, 0);
+                Hands.Image = Impose(front, headClick ? Properties.Resources.line_head : Properties.Resources.pressed_key5, headClick ? 0 : 270, 0);
             }
         }
 
@@ -209,7 +209,7 @@ namespace LineKeyViewer {
             if(!left_pressed.Contains(key6)) {
                 left_pressed.Add(key6);
                 Hands.BackgroundImage = Superimpose(bg, Properties.Resources.key6, 277, 269);
-                if(!headClick) Hands.Image = Impose(front, Properties.Resources.pressed_key6, 270, 0);
+                Hands.Image = Impose(front, headClick ? Properties.Resources.line_head : Properties.Resources.pressed_key6, headClick ? 0 : 270, 0);
             }
         }
 
@@ -217,7 +217,7 @@ namespace LineKeyViewer {
             if(!left_pressed.Contains(key7)) {
                 left_pressed.Add(key7);
                 Hands.BackgroundImage = Superimpose(bg, Properties.Resources.key7, 307, 275);
-                if(!headClick) Hands.Image = Impose(front, Properties.Resources.pressed_key7, 270, 0);
+                Hands.Image = Impose(front, headClick ? Properties.Resources.line_head : Properties.Resources.pressed_key7, headClick ? 0 : 270, 0);
             }
         }
 
@@ -225,7 +225,7 @@ namespace LineKeyViewer {
             if(!left_pressed.Contains(key8)) {
                 left_pressed.Add(key8);
                 Hands.BackgroundImage = Superimpose(bg, Properties.Resources.key8, 336, 283);
-                if(!headClick) Hands.Image = Impose(front, Properties.Resources.pressed_key8, 270, 0);
+                Hands.Image = Impose(front, headClick ? Properties.Resources.line_head : Properties.Resources.pressed_key8, headClick ? 0 : 270, 0);
             }
         }
 
@@ -233,7 +233,7 @@ namespace LineKeyViewer {
             if(!right_pressed.Contains(key9)) {
                 right_pressed.Add(key9);
                 Hands.BackgroundImage = Superimpose(bg, Properties.Resources.key9, 158, 215);
-                if(!headClick) Hands.Image = Impose(front, Properties.Resources.pressed_key9, 0, 0);
+                Hands.Image = Impose(front, headClick ? Properties.Resources.line_head : Properties.Resources.pressed_key9, 0, 0);
             }
         }
 
@@ -241,7 +241,7 @@ namespace LineKeyViewer {
             if(!right_pressed.Contains(key10)) {
                 right_pressed.Add(key10);
                 Hands.BackgroundImage = Superimpose(bg, Properties.Resources.key10, 185, 221);
-                if(!headClick) Hands.Image = Impose(front, Properties.Resources.pressed_key10, 0, 0);
+                Hands.Image = Impose(front, headClick ? Properties.Resources.line_head : Properties.Resources.pressed_key10, 0, 0);
             }
         }
 
@@ -249,7 +249,7 @@ namespace LineKeyViewer {
             if(!right_pressed.Contains(key11)) {
                 right_pressed.Add(key11);
                 Hands.BackgroundImage = Superimpose(bg, Properties.Resources.key11, 215, 227);
-                if(!headClick) Hands.Image = Impose(front, Properties.Resources.pressed_key11, 0, 0);
+                Hands.Image = Impose(front, headClick ? Properties.Resources.line_head : Properties.Resources.pressed_key11, 0, 0);
             }
         }
 
@@ -257,7 +257,7 @@ namespace LineKeyViewer {
             if(!right_pressed.Contains(key12)) {
                 right_pressed.Add(key12);
                 Hands.BackgroundImage = Superimpose(bg, Properties.Resources.key12, 244, 234);
-                if(!headClick) Hands.Image = Impose(front, Properties.Resources.pressed_key12, 0, 0);
+                Hands.Image = Impose(front, headClick ? Properties.Resources.line_head : Properties.Resources.pressed_key12, 0, 0);
             }
         }
 
@@ -265,7 +265,7 @@ namespace LineKeyViewer {
             if(!left_pressed.Contains(key13)) {
                 left_pressed.Add(key13);
                 Hands.BackgroundImage = Superimpose(bg, Properties.Resources.key13, 273, 240);
-                if(!headClick) Hands.Image = Impose(front, Properties.Resources.pressed_key13, 270, 0);
+                Hands.Image = Impose(front, headClick ? Properties.Resources.line_head : Properties.Resources.pressed_key13, headClick ? 0 : 270, 0);
             }
         }
 
@@ -273,7 +273,7 @@ namespace LineKeyViewer {
             if(!left_pressed.Contains(key14)) {
                 left_pressed.Add(key14);
                 Hands.BackgroundImage = Superimpose(bg, Properties.Resources.key14, 301, 247);
-                if(!headClick) Hands.Image = Impose(front, Properties.Resources.pressed_key14, 270, 0);
+                Hands.Image = Impose(front, headClick ? Properties.Resources.line_head : Properties.Resources.pressed_key14, headClick ? 0 : 270, 0);
             }
         }
 
@@ -281,7 +281,7 @@ namespace LineKeyViewer {
             if(!left_pressed.Contains(key15)) {
                 left_pressed.Add(key15);
                 Hands.BackgroundImage = Superimpose(bg, Properties.Resources.key15, 330, 254);
-                if(!headClick) Hands.Image = Impose(front, Properties.Resources.pressed_key15, 270, 0);
+                Hands.Image = Impose(front, headClick ? Properties.Resources.line_head : Properties.Resources.pressed_key15, headClick ? 0 : 270, 0);
             }
         }
 
@@ -289,7 +289,7 @@ namespace LineKeyViewer {
             if(!left_pressed.Contains(key16)) {
                 left_pressed.Add(key16);
                 Hands.BackgroundImage = Superimpose(bg, Properties.Resources.key16, 359, 261);
-                if(!headClick) Hands.Image = Impose(front, Properties.Resources.pressed_key16, 270, 0);
+                Hands.Image = Impose(front, headClick ? Properties.Resources.line_head : Properties.Resources.pressed_key16, headClick ? 0 : 270, 0);
             }
         }
 
@@ -405,34 +405,40 @@ namespace LineKeyViewer {
         }
 
         private void PressLastRight() {
-            if(headClick) return;
+            if(headClick) {
+                Hands.Image = Impose(front, Properties.Resources.line_head, 0, 0);
+                return;
+            }
             try {
                 string k = right_pressed[right_pressed.Count - 1];
-                Impose(front, k == key1  ? Properties.Resources.pressed_key1 :
-                              k == key2  ? Properties.Resources.pressed_key2 :
-                              k == key3  ? Properties.Resources.pressed_key3 :
-                              k == key4  ? Properties.Resources.pressed_key4 :
-                              k == key9  ? Properties.Resources.pressed_key9 :
-                              k == key10 ? Properties.Resources.pressed_key10 :
-                              k == key11 ? Properties.Resources.pressed_key11 :
-                              k == key12 ? Properties.Resources.pressed_key12 : Properties.Resources.unpressed_right, 0, 0);
+                Hands.Image = Impose(front, k == key1  ? Properties.Resources.pressed_key1 :
+                                            k == key2  ? Properties.Resources.pressed_key2 :
+                                            k == key3  ? Properties.Resources.pressed_key3 :
+                                            k == key4  ? Properties.Resources.pressed_key4 :
+                                            k == key9  ? Properties.Resources.pressed_key9 :
+                                            k == key10 ? Properties.Resources.pressed_key10 :
+                                            k == key11 ? Properties.Resources.pressed_key11 :
+                                            k == key12 ? Properties.Resources.pressed_key12 : Properties.Resources.unpressed_right, 0, 0);
             } catch {
                 Hands.Image = Impose(front, Properties.Resources.unpressed_right, 0, 0);
             }
         }
 
         private void PressLastLeft() {
-            if(headClick) return;
+            if(headClick) {
+                Hands.Image = Impose(front, Properties.Resources.line_head, 0, 0);
+                return;
+            }
             try {
                 string k = left_pressed[left_pressed.Count - 1];
-                Impose(front, k == key5  ? Properties.Resources.pressed_key5 :
-                              k == key6  ? Properties.Resources.pressed_key6 :
-                              k == key7  ? Properties.Resources.pressed_key7 :
-                              k == key8  ? Properties.Resources.pressed_key8 :
-                              k == key13 ? Properties.Resources.pressed_key13 :
-                              k == key14 ? Properties.Resources.pressed_key14 :
-                              k == key15 ? Properties.Resources.pressed_key15 :
-                              k == key16 ? Properties.Resources.pressed_key16 : Properties.Resources.unpressed_left, 270, 0);
+                Hands.Image = Impose(front, k == key5  ? Properties.Resources.pressed_key5 :
+                                            k == key6  ? Properties.Resources.pressed_key6 :
+                                            k == key7  ? Properties.Resources.pressed_key7 :
+                                            k == key8  ? Properties.Resources.pressed_key8 :
+                                            k == key13 ? Properties.Resources.pressed_key13 :
+                                            k == key14 ? Properties.Resources.pressed_key14 :
+                                            k == key15 ? Properties.Resources.pressed_key15 :
+                                            k == key16 ? Properties.Resources.pressed_key16 : Properties.Resources.unpressed_left, 270, 0);
             } catch {
                 Hands.Image = Impose(front, Properties.Resources.unpressed_left, 270, 0);
             }

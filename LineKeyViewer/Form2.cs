@@ -9,22 +9,23 @@ namespace LineKeyViewer
     {
         private App app;
        
-        private bool key1_trigger = false;
-        private bool key2_trigger = false;
-        private bool key3_trigger = false;
-        private bool key4_trigger = false;
-        private bool key5_trigger = false;
-        private bool key6_trigger = false;
-        private bool key7_trigger = false;
-        private bool key8_trigger = false;
-        private bool key9_trigger = false;
-        private bool key10_trigger = false;
-        private bool key11_trigger = false;
-        private bool key12_trigger = false;
-        private bool key13_trigger = false;
-        private bool key14_trigger = false;
-        private bool key15_trigger = false;
-        private bool key16_trigger = false;
+        private bool key1_trigger;
+        private bool key2_trigger;
+        private bool key3_trigger;
+        private bool key4_trigger;
+        private bool key5_trigger;
+        private bool key6_trigger;
+        private bool key7_trigger;
+        private bool key8_trigger;
+        private bool key9_trigger;
+        private bool key10_trigger;
+        private bool key11_trigger;
+        private bool key12_trigger;
+        private bool key13_trigger;
+        private bool key14_trigger;
+        private bool key15_trigger;
+        private bool key16_trigger;
+        private bool isSpace;
 
         private ColorDialog color = new ColorDialog();
         private IKeyboardMouseEvents hook = Hook.GlobalEvents();
@@ -65,6 +66,7 @@ namespace LineKeyViewer
         private void Settings_KeyDown(object sender, KeyEventArgs e)
         {
             string keyCode = e.KeyCode.ToString();
+            if(e.KeyCode == Keys.Space || e.KeyCode == Keys.Return) isSpace = true;
             if (key1_trigger)
             {
                 key1_trigger = false;
@@ -344,6 +346,10 @@ namespace LineKeyViewer
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(isSpace) {
+                isSpace = false;
+                return;
+            }
             DisableTriggers();
             key1_trigger = true;
             button1.Text = "*Press";
@@ -351,6 +357,10 @@ namespace LineKeyViewer
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if(isSpace) {
+                isSpace = false;
+                return;
+            }
             DisableTriggers();
             key2_trigger = true;
             button2.Text = "*Press";
@@ -358,6 +368,10 @@ namespace LineKeyViewer
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if(isSpace) {
+                isSpace = false;
+                return;
+            }
             DisableTriggers();
             key3_trigger = true;
             button3.Text = "*Press";
@@ -365,6 +379,10 @@ namespace LineKeyViewer
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if(isSpace) {
+                isSpace = false;
+                return;
+            }
             DisableTriggers();
             key4_trigger = true;
             button4.Text = "*Press";
@@ -372,6 +390,10 @@ namespace LineKeyViewer
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if(isSpace) {
+                isSpace = false;
+                return;
+            }
             DisableTriggers();
             key5_trigger = true;
             button5.Text = "*Press";
@@ -379,6 +401,10 @@ namespace LineKeyViewer
 
         private void button6_Click(object sender, EventArgs e)
         {
+            if(isSpace) {
+                isSpace = false;
+                return;
+            }
             DisableTriggers();
             key6_trigger = true;
             button6.Text = "*Press";
@@ -386,6 +412,10 @@ namespace LineKeyViewer
 
         private void button7_Click(object sender, EventArgs e)
         {
+            if(isSpace) {
+                isSpace = false;
+                return;
+            }
             DisableTriggers();
             key7_trigger = true;
             button7.Text = "*Press";
@@ -393,6 +423,10 @@ namespace LineKeyViewer
 
         private void button8_Click(object sender, EventArgs e)
         {
+            if(isSpace) {
+                isSpace = false;
+                return;
+            }
             DisableTriggers();
             key8_trigger = true;
             button8.Text = "*Press";
@@ -400,6 +434,10 @@ namespace LineKeyViewer
         
         private void button9_Click(object sender, EventArgs e)
         {
+            if(isSpace) {
+                isSpace = false;
+                return;
+            }
             DisableTriggers();
             key9_trigger = true;
             button9.Text = "*Press";
@@ -407,6 +445,10 @@ namespace LineKeyViewer
         
         private void button10_Click(object sender, EventArgs e)
         {
+            if(isSpace) {
+                isSpace = false;
+                return;
+            }
             DisableTriggers();
             key10_trigger = true;
             button10.Text = "*Press";
@@ -414,6 +456,10 @@ namespace LineKeyViewer
         
         private void button11_Click(object sender, EventArgs e)
         {
+            if(isSpace) {
+                isSpace = false;
+                return;
+            }
             DisableTriggers();
             key11_trigger = true;
             button11.Text = "*Press";
@@ -421,6 +467,10 @@ namespace LineKeyViewer
         
         private void button12_Click(object sender, EventArgs e)
         {
+            if(isSpace) {
+                isSpace = false;
+                return;
+            }
             DisableTriggers();
             key12_trigger = true;
             button12.Text = "*Press";
@@ -428,6 +478,10 @@ namespace LineKeyViewer
         
         private void button13_Click(object sender, EventArgs e)
         {
+            if(isSpace) {
+                isSpace = false;
+                return;
+            }
             DisableTriggers();
             key13_trigger = true;
             button13.Text = "*Press";
@@ -435,6 +489,10 @@ namespace LineKeyViewer
         
         private void button14_Click(object sender, EventArgs e)
         {
+            if(isSpace) {
+                isSpace = false;
+                return;
+            }
             DisableTriggers();
             key14_trigger = true;
             button14.Text = "*Press";
@@ -442,6 +500,10 @@ namespace LineKeyViewer
         
         private void button15_Click(object sender, EventArgs e)
         {
+            if(isSpace) {
+                isSpace = false;
+                return;
+            }
             DisableTriggers();
             key15_trigger = true;
             button15.Text = "*Press";
@@ -449,6 +511,10 @@ namespace LineKeyViewer
         
         private void button16_Click(object sender, EventArgs e)
         {
+            if(isSpace) {
+                isSpace = false;
+                return;
+            }
             DisableTriggers();
             key16_trigger = true;
             button16.Text = "*Press";
