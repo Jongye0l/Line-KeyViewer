@@ -80,8 +80,7 @@ namespace LineKeyViewer {
         private async void CheckMods() {
             try {
                 WebClient webClient = new WebClient();
-                byte[] data = //await webClient.DownloadDataTaskAsync("http://jalib.jongyeol.kr/modInfoV2/LineKeyViewer/latest/0");
-                    await webClient.DownloadDataTaskAsync("http://jalib.jongyeol.kr/modInfoV2/PlanetTweaks/1.0.0.0/0");
+                byte[] data = await webClient.DownloadDataTaskAsync("http://jalib.jongyeol.kr/modInfoV2/LineKeyViewer/latest/0");
                 if(data[0] == 0) return;
                 if(!Properties.Settings.Default.NotificationMod) {
                     int size = data[1] << 24 | data[2] << 16 | data[3] << 8 | data[4];
