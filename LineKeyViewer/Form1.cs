@@ -36,10 +36,15 @@ namespace LineKeyViewer {
             hook.KeyUp += HookKeyUp;
             hook.MouseDown += HookMouseDown;
             hook.MouseUp += HookMouseUp;
+            Disposed += OnDispose;
 
             Cat.Controls.Add(Hands);
             SetMode(mode);
             Winking();
+        }
+
+        private void OnDispose(object sender, EventArgs e) {
+            hook.Dispose();
         }
 
         private void CheckUpdates() {
