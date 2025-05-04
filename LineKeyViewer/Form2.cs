@@ -53,6 +53,8 @@ namespace LineKeyViewer
             button14.Text = Properties.Settings.Default.pianoKey14;
             button15.Text = Properties.Settings.Default.pianoKey15;
             button16.Text = Properties.Settings.Default.pianoKey16;
+            
+            toolStripStatusLabel1.Text = "Version " + typeof(Program).Assembly.GetName().Version;
 
             KeyPreview = true;
             hook.KeyDown += Settings_KeyDown;

@@ -501,15 +501,15 @@
             // 
             this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(78, 17);
-            this.toolStripStatusLabel1.Text = "Version 1.2.1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(102, 17);
+            this.toolStripStatusLabel1.Text = "Version Unknown";
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(104, 17);
-            this.toolStripStatusLabel2.Text = "App by PunyFlash";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(97, 17);
+            this.toolStripStatusLabel2.Text = "App by Jongyeol";
             // 
             // Settings
             // 
