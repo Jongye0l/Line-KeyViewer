@@ -39,7 +39,7 @@
             this.Hands.BackColor = System.Drawing.Color.Transparent;
             this.Hands.Location = new System.Drawing.Point(0, 0);
             this.Hands.Name = "Hands";
-            this.Hands.Size = new System.Drawing.Size(630, 415);
+            this.Hands.Size = new System.Drawing.Size(540, 420);
             this.Hands.TabIndex = 1;
             this.Hands.TabStop = false;
             // 
@@ -49,7 +49,7 @@
             this.Cat.BackgroundImage = global::LineKeyViewer.Properties.Resources.cat_table;
             this.Cat.Location = new System.Drawing.Point(0, 0);
             this.Cat.Name = "Cat";
-            this.Cat.Size = new System.Drawing.Size(630, 415);
+            this.Cat.Size = new System.Drawing.Size(540, 420);
             this.Cat.TabIndex = 0;
             this.Cat.TabStop = false;
             // 
@@ -57,7 +57,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 421);
+            this.ClientSize = new System.Drawing.Size(540, 420);
             this.Controls.Add(this.Hands);
             this.Controls.Add(this.Cat);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
