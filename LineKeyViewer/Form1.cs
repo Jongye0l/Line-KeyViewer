@@ -36,7 +36,7 @@ namespace LineKeyViewer {
 
         private Bitmap bg = Properties.Resources.empty;
         private Bitmap front = Properties.Resources.empty;
-        private bool korean = CultureInfo.CurrentCulture.Name == "ko-KR";
+        public bool korean = CultureInfo.CurrentCulture.Name == "ko-KR";
         private bool adofaiAvailable = false;
 
         public App() {

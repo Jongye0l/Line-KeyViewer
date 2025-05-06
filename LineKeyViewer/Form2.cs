@@ -51,7 +51,14 @@ namespace LineKeyViewer {
             button15.Text = ((Keys) Properties.Settings.Default.pianoKey15).ToString();
             button16.Text = ((Keys) Properties.Settings.Default.pianoKey16).ToString();
 
-            toolStripStatusLabel1.Text = "Version " + typeof(Program).Assembly.GetName().Version;
+            toolStripStatusLabel1.Text = (app.korean ? "버전 " : "Version ") + typeof(Program).Assembly.GetName().Version;
+            if(app.korean) {
+                groupBox3.Text = "기본 키";
+                groupBox4.Text = "아래쪽 키";
+                label12.Text = "배경 색";
+                pianoTable.Text = "책상 가리기";
+                Text = "설정";
+            }
 
             KeyPreview = true;
             hook.KeyDown += Settings_KeyDown;
