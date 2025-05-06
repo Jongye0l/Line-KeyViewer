@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.Modes = new System.Windows.Forms.TabControl();
-            this.Piano = new System.Windows.Forms.TabPage();
+            this.Default = new System.Windows.Forms.TabPage();
             this.pianoTable = new System.Windows.Forms.CheckBox();
             this.pianoBackground = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -41,19 +41,19 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -70,7 +70,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.Modes.SuspendLayout();
-            this.Piano.SuspendLayout();
+            this.Default.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -78,7 +78,7 @@
             // 
             // Modes
             // 
-            this.Modes.Controls.Add(this.Piano);
+            this.Modes.Controls.Add(this.Default);
             this.Modes.Location = new System.Drawing.Point(0, 0);
             this.Modes.Name = "Modes";
             this.Modes.SelectedIndex = 0;
@@ -86,19 +86,19 @@
             this.Modes.TabIndex = 0;
             this.Modes.TabStop = false;
             // 
-            // Piano
+            // Default
             // 
-            this.Piano.Controls.Add(this.pianoTable);
-            this.Piano.Controls.Add(this.pianoBackground);
-            this.Piano.Controls.Add(this.label12);
-            this.Piano.Controls.Add(this.groupBox4);
-            this.Piano.Controls.Add(this.groupBox3);
-            this.Piano.Location = new System.Drawing.Point(4, 22);
-            this.Piano.Name = "Piano";
-            this.Piano.Size = new System.Drawing.Size(279, 225);
-            this.Piano.TabIndex = 1;
-            this.Piano.Text = "Piano";
-            this.Piano.UseVisualStyleBackColor = true;
+            this.Default.Controls.Add(this.pianoTable);
+            this.Default.Controls.Add(this.pianoBackground);
+            this.Default.Controls.Add(this.label12);
+            this.Default.Controls.Add(this.groupBox4);
+            this.Default.Controls.Add(this.groupBox3);
+            this.Default.Location = new System.Drawing.Point(4, 22);
+            this.Default.Name = "Default";
+            this.Default.Size = new System.Drawing.Size(279, 225);
+            this.Default.TabIndex = 1;
+            this.Default.Text = "Default";
+            this.Default.UseVisualStyleBackColor = true;
             // 
             // pianoTable
             // 
@@ -139,20 +139,20 @@
             this.groupBox4.Controls.Add(this.label19);
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Controls.Add(this.label17);
-            this.groupBox4.Controls.Add(this.button8);
+            this.groupBox4.Controls.Add(this.button12);
             this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.button7);
+            this.groupBox4.Controls.Add(this.button11);
             this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.button6);
+            this.groupBox4.Controls.Add(this.button10);
             this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.button5);
+            this.groupBox4.Controls.Add(this.button9);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Location = new System.Drawing.Point(138, 3);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(128, 180);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Left Hand";
+            this.groupBox4.Text = "Under Key";
             // 
             // button16
             // 
@@ -230,72 +230,72 @@
             this.label17.TabIndex = 16;
             this.label17.Text = "Key13";
             // 
-            // button8
+            // button12
             // 
-            this.button8.Location = new System.Drawing.Point(51, 72);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(70, 21);
-            this.button8.TabIndex = 15;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.button12.Location = new System.Drawing.Point(51, 72);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(70, 21);
+            this.button12.TabIndex = 15;
+            this.button12.Text = "button12";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(8, 77);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(33, 12);
+            this.label11.Size = new System.Drawing.Size(39, 12);
             this.label11.TabIndex = 14;
-            this.label11.Text = "Key8";
+            this.label11.Text = "Key12";
             // 
-            // button7
+            // button11
             // 
-            this.button7.Location = new System.Drawing.Point(51, 52);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(70, 21);
-            this.button7.TabIndex = 13;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button11.Location = new System.Drawing.Point(51, 52);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(70, 21);
+            this.button11.TabIndex = 13;
+            this.button11.Text = "button11";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(8, 57);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(33, 12);
+            this.label10.Size = new System.Drawing.Size(39, 12);
             this.label10.TabIndex = 12;
-            this.label10.Text = "Key7";
+            this.label10.Text = "Key11";
             // 
-            // button6
+            // button10
             // 
-            this.button6.Location = new System.Drawing.Point(51, 32);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(70, 21);
-            this.button6.TabIndex = 11;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button10.Location = new System.Drawing.Point(51, 32);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(70, 21);
+            this.button10.TabIndex = 11;
+            this.button10.Text = "button10";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(8, 37);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(33, 12);
+            this.label9.Size = new System.Drawing.Size(39, 12);
             this.label9.TabIndex = 10;
-            this.label9.Text = "Key6";
+            this.label9.Text = "Key10";
             // 
-            // button5
+            // button9
             // 
-            this.button5.Location = new System.Drawing.Point(51, 12);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(70, 21);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button9.Location = new System.Drawing.Point(51, 12);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(70, 21);
+            this.button9.TabIndex = 9;
+            this.button9.Text = "button9";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // label8
             // 
@@ -304,14 +304,14 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 12);
             this.label8.TabIndex = 8;
-            this.label8.Text = "Key5";
+            this.label8.Text = "Key9";
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button12);
-            this.groupBox3.Controls.Add(this.button11);
-            this.groupBox3.Controls.Add(this.button10);
-            this.groupBox3.Controls.Add(this.button9);
+            this.groupBox3.Controls.Add(this.button8);
+            this.groupBox3.Controls.Add(this.button7);
+            this.groupBox3.Controls.Add(this.button6);
+            this.groupBox3.Controls.Add(this.button5);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.label14);
@@ -329,74 +329,74 @@
             this.groupBox3.Size = new System.Drawing.Size(128, 180);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Right Hand";
+            this.groupBox3.Text = "Main Key";
             // 
-            // button12
+            // button8
             // 
-            this.button12.Location = new System.Drawing.Point(51, 152);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(70, 21);
-            this.button12.TabIndex = 15;
-            this.button12.Text = "button12";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.button8.Location = new System.Drawing.Point(51, 152);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(70, 21);
+            this.button8.TabIndex = 15;
+            this.button8.Text = "button8";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button11
+            // button7
             // 
-            this.button11.Location = new System.Drawing.Point(51, 132);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(70, 21);
-            this.button11.TabIndex = 14;
-            this.button11.Text = "button11";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.button7.Location = new System.Drawing.Point(51, 132);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(70, 21);
+            this.button7.TabIndex = 14;
+            this.button7.Text = "button7";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // button10
+            // button6
             // 
-            this.button10.Location = new System.Drawing.Point(51, 112);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(70, 21);
-            this.button10.TabIndex = 13;
-            this.button10.Text = "button10";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.button6.Location = new System.Drawing.Point(51, 112);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(70, 21);
+            this.button6.TabIndex = 13;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button9
+            // button5
             // 
-            this.button9.Location = new System.Drawing.Point(51, 92);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(70, 21);
-            this.button9.TabIndex = 12;
-            this.button9.Text = "button9";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.button5.Location = new System.Drawing.Point(51, 92);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(70, 21);
+            this.button5.TabIndex = 12;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(7, 157);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(39, 12);
+            this.label16.Size = new System.Drawing.Size(33, 12);
             this.label16.TabIndex = 11;
-            this.label16.Text = "Key12";
+            this.label16.Text = "Key8";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(7, 137);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(39, 12);
+            this.label15.Size = new System.Drawing.Size(33, 12);
             this.label15.TabIndex = 10;
-            this.label15.Text = "Key11";
+            this.label15.Text = "Key7";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(7, 117);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(39, 12);
+            this.label14.Size = new System.Drawing.Size(33, 12);
             this.label14.TabIndex = 9;
-            this.label14.Text = "Key10";
+            this.label14.Text = "Key6";
             // 
             // label13
             // 
@@ -405,7 +405,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(33, 12);
             this.label13.TabIndex = 8;
-            this.label13.Text = "Key9";
+            this.label13.Text = "Key5";
             // 
             // button4
             // 
@@ -486,6 +486,7 @@
             // statusStrip1
             // 
             this.statusStrip1.AllowMerge = false;
+            this.statusStrip1.Font = new System.Drawing.Font("맑은 고딕", 6F);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
                 this.toolStripStatusLabel1, this.toolStripStatusLabel2
             });
@@ -499,17 +500,19 @@
             // 
             // toolStripStatusLabel1
             // 
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("맑은 고딕", 7F);
             this.toolStripStatusLabel1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(102, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(85, 17);
             this.toolStripStatusLabel1.Text = "Version Unknown";
             // 
             // toolStripStatusLabel2
             // 
+            this.toolStripStatusLabel2.Font = new System.Drawing.Font("맑은 고딕", 7F);
             this.toolStripStatusLabel2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(97, 17);
-            this.toolStripStatusLabel2.Text = "App by Jongyeol";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(188, 17);
+            this.toolStripStatusLabel2.Text = "App by Jongyeol(Original by PunyFlash)";
             // 
             // Settings
             // 
@@ -526,8 +529,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Settings";
             this.Modes.ResumeLayout(false);
-            this.Piano.ResumeLayout(false);
-            this.Piano.PerformLayout();
+            this.Default.ResumeLayout(false);
+            this.Default.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -542,10 +545,10 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
@@ -561,7 +564,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.TabPage Piano;
+        private System.Windows.Forms.TabPage Default;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button4;
@@ -574,13 +577,13 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button pianoBackground;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox pianoTable;
     }
