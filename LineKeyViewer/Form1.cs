@@ -110,7 +110,7 @@ namespace LineKeyViewer {
 
         private async void Winking() {
             Random rnd = new Random();
-            while(IsDisposed) {
+            while(!IsDisposed) {
                 do {
                     await Task.Delay(rnd.Next(3000, 7000));
                 } while(headClick);
